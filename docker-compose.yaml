@@ -1,0 +1,159 @@
+services:
+  django_ezyaid:
+    image: django_ezyaid:latest
+    container_name: django_ezyaid
+    command: ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+    networks:
+      - ezynet
+    ports:
+      - "8000:8000"
+    volumes:
+      - "D:/MajorProject/EzyAid/backend/eamiddleware:/app"
+
+  spark_ezyaid:
+    image: bitnami/spark:latest
+    container_name: spark_ezyaid
+    command:
+      [
+        "/opt/bitnami/spark/bin/spark-class",
+        "org.apache.spark.deploy.master.Master",
+        "--host",
+        "spark_ezyaid",
+      ]
+    ports:
+      - "7077:7077"
+      - "8080:8080"
+    environment:
+      - SPARK_CONF_DIR=/opt/bitnami/spark/conf
+      - SPARK_RPC_MESSAGE_MAX_SIZE=512m
+      - SPARK_NETWORK_TIMEOUT=600s
+    volumes:
+      - "D:/MajorProject/EzyAid:/app"
+    networks:
+      - ezynet
+
+  sparkworker_ezyaid:
+    image: bitnami/spark:latest
+    container_name: sparkworker_ezyaid
+    command:
+      [
+        "/opt/bitnami/spark/bin/spark-class",
+        "org.apache.spark.deploy.worker.Worker",
+        "spark://spark_ezyaid:7077",
+      ]
+    depends_on:
+      - spark_ezyaid
+    environment:
+      - SPARK_WORKER_CORES=2
+      - SPARK_WORKER_MEMORY=2048m
+    networks:
+      - ezynet
+
+  redis_ezyaid:
+    image: redis:latest
+    container_name: redis_ezyaid
+    ports:
+      - "6379:6379"
+    networks:
+      - ezynet
+    volumes:
+      - "D:/MajorProject/EzyAid/redis.conf:/usr/local/etc/redis/redis.conf"
+      - redis_data:/data
+    command: redis-server /usr/local/etc/redis/redis.conf
+
+  mysql_ezyaid:
+    image: debezium/example-mysql-gtids:2.7.3.Final
+    container_name: mysql_ezyaid
+    environment:
+      MYSQL_ROOT_PASSWORD: pass
+      MYSQL_DATABASE: ezyaid
+    ports:
+      - "3333:3306"
+    networks:
+      - ezynet
+    command: >
+      --server-id=1
+      --log-bin=mysql-bin
+      --binlog-format=ROW
+      --binlog-row-image=FULL
+      --binlog-do-db=ezyaid
+      --gtid-mode=ON
+      --enforce-gtid-consistency
+      --default-authentication-plugin=mysql_native_password
+    volumes:
+      - mysql_data:/var/lib/mysql
+  kafka_ezyaid:
+    image: bitnami/kafka:latest
+    container_name: kafka_ezyaid
+    environment:
+      - KAFKA_CFG_NODE_ID=0
+      - KAFKA_CFG_PROCESS_ROLES=controller,broker
+      - KAFKA_CFG_CONTROLLER_QUORUM_VOTERS=0@kafka_ezyaid:9093
+      - KAFKA_CFG_CONTROLLER_LISTENER_NAMES=CONTROLLER
+      - KAFKA_CFG_LISTENER_SECURITY_PROTOCOL_MAP=CONTROLLER:PLAINTEXT,PLAINTEXT:PLAINTEXT,EXTERNAL:PLAINTEXT
+      - KAFKA_CFG_LISTENERS=PLAINTEXT://:9092,CONTROLLER://:9093,EXTERNAL://:9094
+      - KAFKA_CFG_ADVERTISED_LISTENERS=PLAINTEXT://kafka_ezyaid:9092,EXTERNAL://localhost:9094
+      - KAFKA_CFG_LOG_DIRS=/bitnami/kafka/data
+      - KAFKA_BROKER_ID=0
+      - KAFKA_CFG_MESSAGE_MAX_BYTES=1342177280 # ~1.25GB (slightly larger than needed messages)
+      - KAFKA_CFG_REPLICA_FETCH_MAX_BYTES=1342177280
+      - KAFKA_CFG_MAX_REQUEST_SIZE=1342177280
+      - KAFKA_CFG_SOCKET_REQUEST_MAX_BYTES=1342177280
+    ports:
+      - "9094:9094"
+      - "9092:9092"
+    networks:
+      - ezynet
+
+  debezium_ezyaid:
+    image: debezium/connect:2.7.3.Final
+    container_name: debezium_ezyaid
+    restart: on-failure:5
+    depends_on:
+      - kafka_ezyaid
+      - mysql_ezyaid
+    environment:
+      BOOTSTRAP_SERVERS: kafka_ezyaid:9092
+      GROUP_ID: debezium
+      CONFIG_STORAGE_TOPIC: debezium_configs
+      OFFSET_STORAGE_TOPIC: debezium_offsets
+      STATUS_STORAGE_TOPIC: debezium_status
+    ports:
+      - "8083:8083"
+    networks:
+      - ezynet
+
+  kafkacons_ezyaid:
+    image: kafkacons_ezyaid:latest
+    container_name: kafkacons_ezyaid
+    depends_on:
+      - kafka_ezyaid
+      - redis_ezyaid
+    restart: always
+    networks:
+      - ezynet
+
+volumes:
+  mysql_data:
+  kafka_data:
+  zookeeper_data:
+  redis_data:
+
+networks:
+  ezynet:
+    driver: bridge
+# PS D:\MajorProject\EzyAid> docker compose up -d
+# [+] Running 12/12
+#  ✔ Volume "ezyaid_zookeeper_data"  Created                                                                                      0.1s
+#  ✔ Volume "ezyaid_kafka_data"      Created                                                                                      0.1s
+#  ✔ Volume "ezyaid_mysql_data"      Created                                                                                      0.1s
+#  ✔ Container spark_ezyaid          Started                                                                                      4.7s
+#  ✔ Container django_ezyaid         Started                                                                                      4.4s
+#  ✔ Container sparkworker_ezyaid    Started                                                                                      5.6s
+#  ✔ Container redis_ezyaid          Started                                                                                      4.3s
+#  ✔ Container zookeeper_ezyaid      Started                                                                                      4.3s
+#  ✔ Container debezium_ezyaid       Started                                                                                      5.2s
+#  ✔ Container kafkacons_ezyaid      Started                                                                                      5.2s
+#  ✔ Container kafka_ezyaid          Started                                                                                      3.9s
+#  ✔ Container mysql_ezyaid          Started                                                                                      4.0s
+# PS D:\MajorProject\EzyAid>
