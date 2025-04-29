@@ -3,7 +3,16 @@ import 'package:provider/provider.dart';
 import 'fontprovider.dart';
 import 'text_to_speech.dart';
 
-class MeesevaCentersPage extends StatelessWidget {
+class MeesevaCentersPage extends StatefulWidget {
+  const MeesevaCentersPage({Key? key}) : super(key: key);
+
+  @override
+  _MeesevaCentersPageState createState() => _MeesevaCentersPageState();
+}
+
+class _MeesevaCentersPageState extends State<MeesevaCentersPage> {
+  String searchText = "";
+
   final List<Map<String, String>> meesevaCenters = const [
 
     {
@@ -139,15 +148,53 @@ class MeesevaCentersPage extends StatelessWidget {
     },
   ];
 
+
   @override
   Widget build(BuildContext context) {
+    final fontSize = Provider.of<FontSizeProvider>(context).fontSize;
+
+    final filteredCenters = meesevaCenters.where((center) {
+      final address = center["address"]?.toLowerCase() ?? "";
+      final centerName = center["center"]?.toLowerCase() ?? "";
+      return address.contains(searchText.toLowerCase()) || centerName.contains(searchText.toLowerCase());
+    }).toList();
+
     return Scaffold(
+      //backgroundColor: Colors.blue[50],
       appBar: _buildAppBar(context),
-      body: ListView.builder(
-        itemCount: meesevaCenters.length,
-        itemBuilder: (context, index) {
-          return MeeSevaCenterCard(center: meesevaCenters[index]);
-        },
+      body: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+            child: TextField(
+              onChanged: (value) => setState(() => searchText = value),
+              cursorColor: Colors.blue,
+              decoration: InputDecoration(
+                hintText: "Search by area",
+                prefixIcon: Icon(Icons.search, color: Colors.lightBlue.shade600,),
+                focusedBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.blue, width: 2.0),
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                enabledBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.lightBlue.shade600, width: 1.0),
+                  borderRadius: BorderRadius.circular(12),
+                ),
+              ),
+
+            ),
+          ),
+          Expanded(
+            child: filteredCenters.isEmpty
+                ? Center(child: Text("No results found", style: TextStyle(fontSize: fontSize)))
+                : ListView.builder(
+              itemCount: filteredCenters.length,
+              itemBuilder: (context, index) {
+                return MeeSevaCenterCard(center: filteredCenters[index]);
+              },
+            ),
+          ),
+        ],
       ),
     );
   }
@@ -164,17 +211,10 @@ class MeesevaCentersPage extends StatelessWidget {
         ),
       ),
       iconTheme: const IconThemeData(color: Colors.white),
-      flexibleSpace: Container(
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            colors: [Color(0xFF1976D2), Color(0xFF2196F3)],
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-          ),
-        ),
-      ),
+      backgroundColor: Colors.lightBlue.shade600,  // Set the background color to blue
     );
   }
+
 }
 
 class MeeSevaCenterCard extends StatefulWidget {
@@ -212,7 +252,7 @@ class _MeeSevaCenterCardState extends State<MeeSevaCenterCard> {
         return Padding(
           padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
           child: Card(
-            color: Colors.lightBlue.shade50,
+            color:Colors.lightBlue.shade50,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(12),
             ),
@@ -258,7 +298,8 @@ class _MeeSevaCenterCardState extends State<MeeSevaCenterCard> {
                   child: IconButton(
                     icon: Icon(
                       isSpeaking ? Icons.stop : Icons.volume_up,
-                      color: Colors.blueAccent,
+                      //color: Colors.blue,
+                      color: Colors.lightBlue.shade600,
                     ),
                     onPressed: _toggleTTS,
                   ),

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'dashboard.dart'; // Import the dashboard page
+import 'dashboard.dart';
 
 class WelcomePage extends StatelessWidget {
   const WelcomePage({super.key});
