@@ -1,3 +1,9 @@
+
+
+
+
+import 'package:frontend/favoritesprovider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'notifypage.dart';
 import 'package:flutter/material.dart';
 import 'schemespage.dart';
@@ -8,7 +14,9 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'meeseva_centers_page.dart';
 import 'developerpage.dart';
-
+import 'profilepage.dart';
+import 'favoritesprovider.dart';
+import 'favoritespage.dart';
 class Dashboard extends StatefulWidget {
   const Dashboard({super.key});
 
@@ -214,7 +222,7 @@ class _DashboardState extends State<Dashboard> {
                                   ? windowApplicants(fontSize)
                                   : flag3
                                   ? windowYear(fontSize)
-                                  //:Center(child: Text("Select the filter", style: TextStyle(fontSize: fontSize))),
+                              //:Center(child: Text("Select the filter", style: TextStyle(fontSize: fontSize))),
                                   : SizedBox(),
                             ),
                           ],
@@ -380,6 +388,15 @@ class _DashboardState extends State<Dashboard> {
         crossAxisAlignment:
         isExpanded ? CrossAxisAlignment.start : CrossAxisAlignment.center,
         children: [
+          // In your _buildSidebar method, add the Profile option:
+          _buildMenuItem(context, Icons.account_circle, "Profile", isExpanded, () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const ProfilePage()),
+            );
+          }),
+
+
           _buildMenuItem(context, Icons.info, "Scheme Details", isExpanded, () {
             Navigator.push(
               context,
@@ -408,6 +425,12 @@ class _DashboardState extends State<Dashboard> {
               _showFontAdjustDialog(context);
             },
           ),
+          _buildMenuItem(context, Icons.favorite_rounded, "Favourite Schemes", isExpanded, () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const FavoritesPage()),
+            );
+          }),
           _buildMenuItem(context, Icons.people, "Developer Connect", isExpanded, () {
             Navigator.push(
               context,
@@ -530,23 +553,19 @@ class _DashboardState extends State<Dashboard> {
   void _showLogoutConfirmation(BuildContext context) {
     showDialog(
       context: context,
-      builder:
-          (context) => Dialog(
+      builder: (context) => Dialog(
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(20),
         ),
-        elevation: 0, // Remove default elevation
-        backgroundColor:
-        Colors.transparent, // Make dialog background transparent
+        elevation: 0,
+        backgroundColor: Colors.transparent,
         child: Container(
           decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.circular(20),
             boxShadow: [
               BoxShadow(
-                color: Colors.lightBlueAccent.withOpacity(
-                  0.6,
-                ), // Glowing effect
+                color: Colors.lightBlueAccent.withOpacity(0.6),
                 blurRadius: 15,
                 spreadRadius: 5,
               ),
@@ -575,13 +594,18 @@ class _DashboardState extends State<Dashboard> {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   _buildButton("Cancel", () => Navigator.pop(context)),
-                  _buildButton("Exit", () {
+                  _buildButton("Exit", () async {
+                    final prefs = await SharedPreferences.getInstance();
+                    await prefs.clear();
+
+                    // Reset font size through the provider
+                    final fontSizeProvider = Provider.of<FontSizeProvider>(context, listen: false);
+                    fontSizeProvider.resetFontSize();
+
                     Navigator.pop(context);
                     Navigator.pushReplacement(
                       context,
-                      MaterialPageRoute(
-                        builder: (context) => const WelcomePage(),
-                      ),
+                      MaterialPageRoute(builder: (context) => const WelcomePage()),
                     );
                   }),
                 ],
@@ -592,6 +616,8 @@ class _DashboardState extends State<Dashboard> {
       ),
     );
   }
+
+
 
   Widget _buildButton(String text, VoidCallback onPressed) {
     return TextButton(
@@ -607,3 +633,4 @@ class _DashboardState extends State<Dashboard> {
     );
   }
 }
+

@@ -1,8 +1,36 @@
+
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'registrationpage.dart';
 import 'dashboard.dart';
 
-class WelcomePage extends StatelessWidget {
+class WelcomePage extends StatefulWidget {
   const WelcomePage({super.key});
+
+  @override
+  State<WelcomePage> createState() => _WelcomePageState();
+}
+
+class _WelcomePageState extends State<WelcomePage> {
+  @override
+  void initState() {
+    super.initState();
+    _checkIfRegistered();
+  }
+
+  Future<void> _checkIfRegistered() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    String? firstName = prefs.getString('firstName');
+
+    if (firstName != null && firstName.isNotEmpty) {
+      // User already registered, go to Dashboard
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => const Dashboard()),
+      );
+    }
+    // Else, stay on this page and show "Get Started"
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -10,9 +38,7 @@ class WelcomePage extends StatelessWidget {
       backgroundColor: Colors.lightBlue.shade50,
       body: Column(
         children: [
-          const SizedBox(height: 5), // Offset from top
-
-          // Top Blue Container with White Text and Glow
+          const SizedBox(height: 5),
           Container(
             width: double.infinity,
             padding: const EdgeInsets.symmetric(vertical: 30),
@@ -37,15 +63,12 @@ class WelcomePage extends StatelessWidget {
                 style: TextStyle(
                   fontSize: 30,
                   fontWeight: FontWeight.bold,
-                  color: Colors.white, // White text on blue background
+                  color: Colors.white,
                 ),
               ),
             ),
           ),
-
           const SizedBox(height: 30),
-
-          // EzyAid Logo
           Expanded(
             child: Center(
               child: Image.asset(
@@ -54,10 +77,7 @@ class WelcomePage extends StatelessWidget {
               ),
             ),
           ),
-
           const SizedBox(height: 30),
-
-          // Get Started Button with Arrow on Right and Glow Effect
           Container(
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
@@ -71,14 +91,14 @@ class WelcomePage extends StatelessWidget {
               ],
             ),
             child: SizedBox(
-              width: 180, // Adjusted button width
-              height: 50, // Adjusted button height
+              width: 180,
+              height: 50,
               child: ElevatedButton(
                 onPressed: () {
                   Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const Dashboard(),
+                      builder: (context) => const RegistrationPage(),
                     ),
                   );
                 },
@@ -92,20 +112,19 @@ class WelcomePage extends StatelessWidget {
                 ),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    const Text(
+                  children: const [
+                    Text(
                       "Get Started",
                       style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                     ),
-                    const SizedBox(width: 5), // Space between text and icon
-                    const Icon(Icons.arrow_forward),
+                    SizedBox(width: 5),
+                    Icon(Icons.arrow_forward),
                   ],
                 ),
               ),
             ),
           ),
-
-          const SizedBox(height: 70), // Spacing at the bottom
+          const SizedBox(height: 70),
         ],
       ),
     );

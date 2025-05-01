@@ -123,29 +123,11 @@ class _SchemeDetailsPageState extends State<SchemeDetailsPage>
                 });
               },
             ),
-            IconButton(
-              icon: Icon(
-                isLiked ? Icons.favorite : Icons.favorite_border,
-                color: Colors.white,
-              ),
-              onPressed: () {
-                setState(() {
-                  isLiked = !isLiked;
-                  updateFavorites(widget.scheme, isLiked);
-                });
-              },
-            ),
+
           ],
           iconTheme: const IconThemeData(color: Colors.white),
-          flexibleSpace: Container(
-            decoration: const BoxDecoration(
-              gradient: LinearGradient(
-                colors: [Color(0xFF1976D2), Color(0xFF2196F3)],
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
-              ),
-            ),
-          ),
+          backgroundColor: Colors.lightBlue.shade600,
+
           bottom: TabBar(
             controller: _tabController, // Set the controller for the TabBar
             indicatorColor: Colors.white,

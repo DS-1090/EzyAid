@@ -24,31 +24,30 @@ sh-5.2$ curl -X POST http://localhost:8083/connectors  -H "Content-Type: applica
 {"name":"mysql-connector","config":{"connector.class":"io.debezium.connector.mysql.MySqlConnector","database.hostname":"mysql_ezyaid","database.port":"3306","database.user":"root","database.password":"pass","database.server.id":"184054","database.server.name":"dbserver1","database.include.list":"ezyaid","table.include.list":"ezyaid.schemeDirectory","include.schema.changes":"false","snapshot.mode":"initial","poll.interval.ms":"5000","topic.prefix":"ezyaid","schema.history.internal.kafka.bootstrap.servers":"kafka_ezyaid:9092","schema.history.internal.kafka.topic":"schema-changes.ezyaid","database.history.kafka.bootstrap.servers":"kafka_ezyaid:9092","database.history.kafka.topic":"dbhistory.ezyaid","name":"mysql-connector"},"tasks":[],"type":"source"}shsh-5.2$ curl -X GET http://localhost:8083/connectors/mysql-connector/status
 {"name":"mysql-connector","connector":{"state":"RUNNING","worker_id":"172.19.0.8:8083"},"tasks":[{"id":0,"state":"RUNNING","worker_id":"172.19.0.8:8083"}],"type":"source"}sh-5.2$
 
+--------------------  MAYYYYYYYYYY ----------------------------------------------
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+curl -X POST http://localhost:8083/connectors  -H "Content-Type: application/json"    -d '{ 
+    "name": "newconnector",
+    "config": {
+      "connector.class": "io.debezium.connector.mysql.MySqlConnector",
+      "database.hostname": "mysql_ezyaid",
+      "database.port": "3306",
+      "database.user": "root",
+      "database.password": "pass",
+      "database.server.id": "184054",
+      "database.server.name": "dbserver1",
+      "database.include.list": "ezyaid",
+      "table.include.list": "ezyaid.schemeDirectory",
+      "include.schema.changes": "false",
+      "snapshot.mode": "initial", 
+      "poll.interval.ms": "5000", 
+      "topic.prefix": "ezyaid",
+      "schema.history.internal.kafka.bootstrap.servers": "kafka_ezyaid:9092",
+      "schema.history.internal.kafka.topic": "schema-changes.ezyaid",
+      "database.history.kafka.bootstrap.servers": "kafka_ezyaid:9092",
+      "database.history.kafka.topic": "dbhistory.ezyaid"
+    }
+  }'
 
 
 

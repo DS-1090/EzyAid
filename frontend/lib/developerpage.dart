@@ -18,7 +18,7 @@ class DeveloperPage extends StatelessWidget {
           style: TextStyle(fontSize: fontSize + 2, color: Colors.white),
         ),
         iconTheme: const IconThemeData(color: Colors.white),
-        backgroundColor: Colors.blue,
+        backgroundColor: Colors.lightBlue.shade600,
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16.0),
@@ -30,14 +30,14 @@ class DeveloperPage extends StatelessWidget {
               name: "Snigdha UG",
               id: "100521733050",
               github: "https://github.com/",
-              email: "mailto:snigdhaudutha@gmail.com",
+              email: "snigdha.udutha@gmail.com",
             ),
             const SizedBox(height: 16),
             DeveloperCard(
               name: "Divya Sahithi V",
               id: "100521733054",
               github: "https://github.com/DS-1090",
-              email: "mailto:divya.yennam5544@gmail.com",
+              email: "divya.yennam5544@gmail.com",
             ),
             const Divider(height: 40),
             Text(

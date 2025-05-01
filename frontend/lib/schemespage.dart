@@ -6,6 +6,7 @@ import 'fontprovider.dart';
 import 'text_to_speech.dart';
 import 'package:http/http.dart' as http;
 import 'favoritespage.dart';
+import 'favoritesprovider.dart';
 
 class SchemesPage extends StatefulWidget {
   const SchemesPage({super.key});
@@ -112,24 +113,13 @@ class _SchemesPageState extends State<SchemesPage> {
               });
             },
           ),
-          IconButton(
-            icon: const Icon(Icons.list_alt, color: Colors.white),
-            tooltip: 'Favourites',
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => FavoritesPage(favs: favs),
-                ),
-              );
-            },
-          ),
+
         ],
         iconTheme: const IconThemeData(color: Colors.white),
         flexibleSpace: Container(
           decoration: BoxDecoration(
             gradient: LinearGradient(
-              colors: [Colors.lightBlue.shade700, Colors.blue],
+              colors: [Colors.lightBlue.shade600, Colors.lightBlue.shade600],
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
             ),
@@ -265,6 +255,53 @@ class _SchemesPageState extends State<SchemesPage> {
 
     return Consumer<FontSizeProvider>(
       builder: (context, fontSizeProvider, child) {
+        // return ListView.builder(
+        //   shrinkWrap: true,
+        //   physics: const NeverScrollableScrollPhysics(),
+        //   itemCount: filteredSchemes.length,
+        //   itemBuilder: (context, index) {
+        //     final scheme = filteredSchemes[index];
+        //     final schemeName = scheme["scheme_name"] ?? "Unnamed Scheme";
+        //
+        //     return Padding(
+        //       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+        //       child: Card(
+        //         color: Colors.lightBlue.shade50,
+        //         shape: RoundedRectangleBorder(
+        //           borderRadius: BorderRadius.circular(12),
+        //         ),
+        //         elevation: 6,
+        //         shadowColor: Colors.blueAccent.withOpacity(0.3),
+        //         child: ListTile(
+        //           contentPadding: const EdgeInsets.all(16),
+        //           title: Text(
+        //             schemeName,
+        //             style: TextStyle(
+        //               fontSize: fontSizeProvider.fontSize + 2,
+        //               fontWeight: FontWeight.bold,
+        //               color: Colors.black,
+        //             ),
+        //           ),
+        //           trailing: const Icon(Icons.arrow_forward_ios, color: Colors.lightBlue),
+        //           onTap: () {
+        //             Navigator.push(
+        //               context,
+        //               MaterialPageRoute(
+        //                 builder: (context) => SchemeDetailsPage(
+        //                   scheme: scheme,
+        //                   favs: favs,
+        //                 ),
+        //               ),
+        //             );
+        //             if (isTtsEnabled) {
+        //               tts.speak(schemeName);
+        //             }
+        //           },
+        //         ),
+        //       ),
+        //     );
+        //   },
+        // );
         return ListView.builder(
           shrinkWrap: true,
           physics: const NeverScrollableScrollPhysics(),
@@ -272,6 +309,8 @@ class _SchemesPageState extends State<SchemesPage> {
           itemBuilder: (context, index) {
             final scheme = filteredSchemes[index];
             final schemeName = scheme["scheme_name"] ?? "Unnamed Scheme";
+            final favoritesProvider = Provider.of<FavoritesProvider>(context);
+            final isFav = favoritesProvider.isFavorite(schemeName);
 
             return Padding(
               padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
@@ -292,14 +331,31 @@ class _SchemesPageState extends State<SchemesPage> {
                       color: Colors.black,
                     ),
                   ),
-                  trailing: const Icon(Icons.arrow_forward_ios, color: Colors.lightBlue),
+                  trailing: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      IconButton(
+                        icon: Icon(
+                          isFav ? Icons.favorite : Icons.favorite_border,
+                          color: isFav ? Colors.red : Colors.grey,
+                        ),
+                        tooltip: isFav ? "Remove from favorites" : "Add to favorites",
+                        onPressed: () {
+                          isFav
+                              ? favoritesProvider.removeFavorite(schemeName)
+                              : favoritesProvider.addFavorite(schemeName);
+                        },
+                      ),
+                      const Icon(Icons.arrow_forward_ios, color: Colors.lightBlue),
+                    ],
+                  ),
                   onTap: () {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
                         builder: (context) => SchemeDetailsPage(
                           scheme: scheme,
-                          favs: favs,
+                          favs: favs, // optional, can be removed if not used anymore
                         ),
                       ),
                     );
@@ -312,6 +368,7 @@ class _SchemesPageState extends State<SchemesPage> {
             );
           },
         );
+
       },
     );
   }
