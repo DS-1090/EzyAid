@@ -1,0 +1,289 @@
+er or image → docker debug mysql_ezyaid
+    Learn more at https://docs.docker.com/go/debug-cli/
+PS D:\MajorProject\EzyAid> 
+ *  History restored 
+
+PS D:\MajorProject\EzyAid> docker exec -it mysql_ezyaid bash
+bash-4.4# mysql -u root -p
+Enter password: 
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 12
+Server version: 8.2.0 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2023, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> use ezyaid;
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+mysql> select scheme_name from schemeDirectory where id=100;
++--------------+
+| scheme_name  |
++--------------+
+| DebeziumTest |
++--------------+
+| scheme_name  |
++--------------+
+| DebeziumTest |
++--------------+
+1 row in set (0.04 sec)
+
+mysql> update schemeDirectory set scheme_name="Debeziumtest" where id=100;
+Query OK, 1 row affected (0.05 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> create table testdeb (id int);
+| scheme_name  |
++--------------+
+| DebeziumTest |
++--------------+
+1 row in set (0.04 sec)
+
+mysql> update schemeDirectory set scheme_name="Debeziumtest" where id=100;
+Query OK, 1 row affected (0.05 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+| scheme_name  |
++--------------+
+| DebeziumTest |
++--------------+
+1 row in set (0.04 sec)
+
+mysql> update schemeDirectory set scheme_name="Debeziumtest" where id=100;
+Query OK, 1 row affected (0.05 sec)
+| scheme_name  |
++--------------+
+| DebeziumTest |
++--------------+
+1 row in set (0.04 sec)
+
+| scheme_name  |
++--------------+
+| DebeziumTest |
++--------------+
++--------------+
+| DebeziumTest |
++--------------+
++--------------+
+1 row in set (0.04 sec)
+
+mysql> update schemeDirectory set scheme_name="Debeziumtest" where id=100;
+Query OK, 1 row affected (0.05 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> create table testdeb (id int);
+Query OK, 0 rows affected (0.12 sec)
+
+mysql> update schemeDirectory set scheme_name="DebeziumTest" where id=100;
+Query OK, 1 row affected (0.06 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> drop table testdeb;
+Query OK, 0 rows affected (0.22 sec)
+
+mysql> SHOW VARIABLES LIKE 'binlog_format'; -- should return ROW
++---------------+-------+
+| Variable_name | Value |
++---------------+-------+
+| binlog_format | ROW   |
++---------------+-------+
+1 row in set (0.07 sec)
+
+mysql> SHOW TABLE STATUS WHERE Name='schemeDirectory'; -- should show InnoDB
++-----------------+--------+---------+------------+------+----------------+-------------+-----------------+--------------+-----------+----------------+---------------------+---------------------+------------+--------------------+----------+----------------+---------+
+| Name            | Engine | Version | Row_format | Rows | Avg_row_length | Data_length | Max_data_length | Index_length | Data_free | Auto_increment | Create_time         | Update_time         | Check_time | Collation          | Checksum | Create_options | Comment |
++-----------------+--------+---------+------------+------+----------------+-------------+-----------------+--------------+-----------+----------------+---------------------+---------------------+------------+--------------------+----------+----------------+---------+
+| schemeDirectory | InnoDB |      10 | Dynamic    |   41 |          38762 |     1589248 |               0 |            0 |   4194304 |           NULL | 2025-04-21 16:13:15 | 2025-04-25 14:33:32 | NULL       | utf8mb4_0900_ai_ci |     NULL |                |         |
++-----------------+--------+---------+------------+------+----------------+-------------+-----------------+--------------+-----------+----------------+---------------------+---------------------+------------+--------------------+----------+----------------+---------+
+1 row in set (0.10 sec)
+
+mysql> SHOW VARIABLES LIKE 'log_bin';
++---------------+-------+
+| Variable_name | Value |
++---------------+-------+
+| log_bin       | ON    |
++---------------+-------+
+1 row in set (0.01 sec)
+
+mysql> SHOW TABLE STATUS FROM ezyaid WHERE Name = 'schemeDirectory';
++-----------------+--------+---------+------------+------+----------------+-------------+-----------------+--------------+-----------+----------------+---------------------+---------------------+------------+--------------------+----------+----------------+---------+
+| Name            | Engine | Version | Row_format | Rows | Avg_row_length | Data_length | Max_data_length | Index_length | Data_free | Auto_increment | Create_time         | Update_time         | Check_time | Collation          | Checksum | Create_options | Comment |
++-----------------+--------+---------+------------+------+----------------+-------------+-----------------+--------------+-----------+----------------+---------------------+---------------------+------------+--------------------+----------+----------------+---------+
+| schemeDirectory | InnoDB |      10 | Dynamic    |   41 |          38762 |     1589248 |               0 |            0 |   4194304 |           NULL | 2025-04-21 16:13:15 | 2025-04-25 14:33:32 | NULL       | utf8mb4_0900_ai_ci |     NULL |                |         |
++-----------------+--------+---------+------------+------+----------------+-------------+-----------------+--------------+-----------+----------------+---------------------+---------------------+------------+--------------------+----------+----------------+---------+
+1 row in set (0.01 sec)
+
+mysql> SHOW CREATE TABLE ezyaid.schemeDirectory;
++-----------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Table           | Create Table                                                              
+                                                                                              
+                                                                                              
+                                                                                              
+                                                                                              
+                                                           |
++-----------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| schemeDirectory | CREATE TABLE `schemeDirectory` (
+  `id` int NOT NULL,
+  `scheme_name` longtext,
+  `open_date` longtext,
+  `state` longtext,
+  `implementing_agency` longtext,
+  `category` longtext,
+  `subcategory` longtext,
+  `tags` longtext,
+  `brief_description` longtext,
+  `detailed_description` longtext,
+  `benefits` longtext,
+  `exclusions` longtext,
+  `eligibility_criteria` longtext,
+  `application_process` longtext,
+  `documents_required` longtext
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci |
++-----------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+1 row in set (0.00 sec)
+
+mysql> ALTER TABLE ezyaid.schemeDirectory
+    ->   ADD PRIMARY KEY (id);
+
+Query OK, 0 rows affected (1.39 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql>
+mysql> update schemeDirectory set scheme_name="Debeziumtest" where id=100;
+Query OK, 1 row affected (0.03 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> insert into schemeDirectory(105,"another_test");
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '105,"another_test")' at line 1   
+mysql> insert into schemeDirectory(105,"another_test");
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '105,"another_test")' at line 1   
+mysql> desc schemeDirectory;
++----------------------+----------+------+-----+---------+-------+
+| Field                | Type     | Null | Key | Default | Extra |
++----------------------+----------+------+-----+---------+-------+
+| id                   | int      | NO   | PRI | NULL    |       |
+| scheme_name          | longtext | YES  |     | NULL    |       |
+| open_date            | longtext | YES  |     | NULL    |       |
+| state                | longtext | YES  |     | NULL    |       |
+| implementing_agency  | longtext | YES  |     | NULL    |       |
+| category             | longtext | YES  |     | NULL    |       |
+| subcategory          | longtext | YES  |     | NULL    |       |
+| tags                 | longtext | YES  |     | NULL    |       |
+| brief_description    | longtext | YES  |     | NULL    |       |
+| detailed_description | longtext | YES  |     | NULL    |       |
+| benefits             | longtext | YES  |     | NULL    |       |
+| exclusions           | longtext | YES  |     | NULL    |       |
+| eligibility_criteria | longtext | YES  |     | NULL    |       |
+| application_process  | longtext | YES  |     | NULL    |       |
+| documents_required   | longtext | YES  |     | NULL    |       |
++----------------------+----------+------+-----+---------+-------+
+15 rows in set (0.06 sec)
+
+mysql> insert into schemeDirectory("105","another_test");
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '"105","another_test")' at line 1 
+mysql> insert into schemeDirectory(105,"anothertest");
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '105,"anothertest")' at line 1    
+mysql> insert into schemeDirectory(105,'anothertest');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '105,'anothertest')' at line 1    
+mysql> INSERT INTO schemeDirectory (id, scheme_name) 
+    -> VALUES (105, 'anothertest');
+Query OK, 1 row affected (0.06 sec)
+
+mysql> SHOW VARIABLES LIKE 'server_id';
++---------------+-------+
+| Variable_name | Value |
++---------------+-------+
+| server_id     | 1     |
++---------------+-------+
+1 row in set (0.05 sec)
+
+mysql> SHOW VARIABLES LIKE 'binlog_format';
++---------------+-------+
+| Variable_name | Value |
++---------------+-------+
+| binlog_format | ROW   |
++---------------+-------+
+1 row in set (0.01 sec)
+
+mysql> SHOW VARIABLES LIKE 'binlog_row_image';
++------------------+-------+
+| Variable_name    | Value |
++------------------+-------+
+| binlog_row_image | FULL  |
++------------------+-------+
+1 row in set (0.00 sec)
+
+mysql> SHOW GRANTS FOR 'root'@'%';
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Grants for root@%                                                                           
+                                                                                              
+                                                                                              
+                                                                                              
+                                                                                              
+                                                                                              
+                                                                                              
+                                                                                              
+                                     |
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, RELOAD, SHUTDOWN, PROCESS, FILE, REFERENCES, INDEX, ALTER, SHOW DATABASES, SUPER, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, REPLICATION SLAVE, REPLICATION CLIENT, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, CREATE USER, EVENT, TRIGGER, CREATE TABLESPACE, CREATE ROLE, DROP ROLE ON *.* TO `root`@`%` WITH GRANT OPTION                                                                                    
+                                                                                              
+                                                                                              
+                                                                                              
+                                     |
+| GRANT ALLOW_NONEXISTENT_DEFINER,APPLICATION_PASSWORD_ADMIN,AUDIT_ABORT_EXEMPT,AUDIT_ADMIN,AUTHENTICATION_POLICY_ADMIN,BACKUP_ADMIN,BINLOG_ADMIN,BINLOG_ENCRYPTION_ADMIN,CLONE_ADMIN,CONNECTION_ADMIN,ENCRYPTION_KEY_ADMIN,FIREWALL_EXEMPT,FLUSH_OPTIMIZER_COSTS,FLUSH_STATUS,FLUSH_TABLES,FLUSH_USER_RESOURCES,GROUP_REPLICATION_ADMIN,GROUP_REPLICATION_STREAM,INNODB_REDO_LOG_ARCHIVE,INNODB_REDO_LOG_ENABLE,PASSWORDLESS_USER_ADMIN,PERSIST_RO_VARIABLES_ADMIN,REPLICATION_APPLIER,REPLICATION_SLAVE_ADMIN,RESOURCE_GROUP_ADMIN,RESOURCE_GROUP_USER,ROLE_ADMIN,SENSITIVE_VARIABLES_OBSERVER,SERVICE_CONNECTION_ADMIN,SESSION_VARIABLES_ADMIN,SET_ANY_DEFINER,SHOW_ROUTINE,SYSTEM_USER,SYSTEM_VARIABLES_ADMIN,TABLE_ENCRYPTION_ADMIN,TELEMETRY_LOG_ADMIN,XA_RECOVER_ADMIN ON *.* TO `root`@`%` WITH GRANT OPTION |
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+2 rows in set (0.02 sec)
+
+mysql> -- Ensure REPLICATION SLAVE, REPLICATION CLIENT, SELECT are present.
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> INSERT INTO schemeDirectory (id, scheme_name)  VALUES (106, 'anothert
+
+mysql> INSERT INTO schemeDirectory (id, scheme_name)  VALUES (106, 'anothertest2');
+Query OK, 1 row affected (0.18 sec)
+
+mysql>
+
+
+
+
+
+
+
+
+
+
+27-04-2025
+
+mysql> update schemeDirectory set scheme_name="New Test" where id=100;
+Query OK, 1 row affected (0.15 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> 
+What's next:
+    Try Docker Debug for seamless, persistent debugging tools in any container or image → docker debug mysql_ezyaid
+    Learn more at https://docs.docker.com/go/debug-cli/
+PS D:\MajorProject\EzyAid> 
+
+
+
+
+-may
+
+mysql> SHOW GLOBAL VARIABLES LIKE 'binlog_expire_logs_seconds';
++----------------------------+-------+
+| Variable_name              | Value |
++----------------------------+-------+
+| binlog_expire_logs_seconds | 86400 |
++----------------------------+-------+
+1 row in set (0.00 sec)
+
+mysql> SET GLOBAL binlog_expire_logs_seconds = 8640000;
+Query OK, 0 rows affected (0.00 sec)

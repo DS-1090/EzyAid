@@ -1,0 +1,39 @@
+curl -X POST "http://localhost:8083/connectors" -H "Content-Type: application/json" -d '{
+  "name": "mysql-connector",
+  "config": {
+    "connector.class": "io.debezium.connector.mysql.MySqlConnector",
+    "database.hostname": "mysql_ezyaid",
+    "database.port": "3306",
+    "database.user": "root",
+    "database.password": "pass",
+    "database.server.id": "184054",
+    "database.include.list": "ezyaid",
+    "table.include.list": "ezyaid.schemeDirectory",
+    "database.history.kafka.bootstrap.servers": "kafka_ezyaid:9092",
+    "database.history.kafka.topic": "schema-changes.ezyaid",
+    "include.schema.changes": "true"
+  }
+}'
+
+
+CREATE TABLE schemeDirectory (
+    id INT AUTO_INCREMENT ,  
+    scheme_name TEXT NOT NULL,
+    open_date TEXT,  
+    state TEXT,
+    implementing_agency TEXT,
+    category TEXT,
+    subcategory TEXT,
+    tags TEXT,
+    brief_description TEXT,
+    detailed_description TEXT,
+    benefits TEXT,
+    exclusions TEXT,
+    eligibility_criteria TEXT,
+    application_process TEXT,
+    documents_required TEXT
+);
+
+
+docker exec -it kafka_ezyaid kafka-topics.sh --bootstrap-server kafka_ezyaid:9092 --list
+docker exec -it kafka_ezyaid kafka-console-consumer.sh --bootstrap-server kafka_ezyaid:9092  --topic ezyaid.schemeDirectory    --from-beginning
