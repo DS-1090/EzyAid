@@ -3,7 +3,9 @@
 
 
 import 'package:frontend/favoritesprovider.dart';
+import 'package:frontend/referencespage.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'langschemespage.dart';
 import 'notifypage.dart';
 import 'package:flutter/material.dart';
 import 'schemespage.dart';
@@ -50,6 +52,10 @@ class _DashboardState extends State<Dashboard> {
     });
 
     final url = Uri.parse('http://10.0.2.2:8000/getDeptCounts/');
+    //print("Yes, Deptentered------------------");
+
+    //final url = Uri.parse('http://172.16.10.200:8000/getDeptCounts/');
+
     try {
       final response = await http.get(url);
       if (response.statusCode == 200) {
@@ -431,12 +437,25 @@ class _DashboardState extends State<Dashboard> {
               MaterialPageRoute(builder: (context) => const FavoritesPage()),
             );
           }),
+          _buildMenuItem(context, Icons.help, "References & Help", isExpanded, () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const ReferenceLinksPage()),
+            );
+          }),
+          _buildMenuItem(context, Icons.language, "Language Support", isExpanded, () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => LangSchemesPage()),
+            );
+          }),
           _buildMenuItem(context, Icons.people, "Developer Connect", isExpanded, () {
             Navigator.push(
               context,
               MaterialPageRoute(builder: (context) => const DeveloperPage()),
             );
           }),
+
           _buildMenuItem(context, Icons.logout, "Exit", isExpanded, () {
             _showLogoutConfirmation(context);
           }),
