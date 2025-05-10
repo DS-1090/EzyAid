@@ -146,14 +146,16 @@ networks:
 # [+] Running 12/12
 #  ✔ Volume "ezyaid_zookeeper_data"  Created                                                                                      0.1s
 #  ✔ Volume "ezyaid_kafka_data"      Created                                                                                      0.1s
-#  ✔ Volume "ezyaid_mysql_data"      Created                                                                                      0.1s
+#  ✔ Volume "ezyaid_mysql_data"      Created 
+#  ✔ Volume "ezyaid_redis_data"      Created                                                                                      0.1s
 #  ✔ Container spark_ezyaid          Started                                                                                      4.7s
 #  ✔ Container django_ezyaid         Started                                                                                      4.4s
 #  ✔ Container sparkworker_ezyaid    Started                                                                                      5.6s
 #  ✔ Container redis_ezyaid          Started                                                                                      4.3s
-#  ✔ Container zookeeper_ezyaid      Started                                                                                      4.3s
 #  ✔ Container debezium_ezyaid       Started                                                                                      5.2s
 #  ✔ Container kafkacons_ezyaid      Started                                                                                      5.2s
 #  ✔ Container kafka_ezyaid          Started                                                                                      3.9s
-#  ✔ Container mysql_ezyaid          Started                                                                                      4.0s
+#  ✔ Container mysql_ezyaid          Started  
+#  ✔ Network ezyaid_ezynet           Created                                                                                                  0.4s 
+                                                                                    4.0s
 # PS D:\MajorProject\EzyAid>
