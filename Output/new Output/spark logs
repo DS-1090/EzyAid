@@ -1,0 +1,362 @@
+have no name!@efadee423099:/app/spark_processing$ 25/04/11 15:09:47 INFO SparkContext: Invoking stop() from shutdown hook
+25/04/11 15:09:47 INFO SparkUI: Stopped Spark web UI at http://efadee423099:4040
+25/04/11 15:09:47 INFO MapOutputTrackerMasterEndpoint: MapOutputTrackerMasterEndpoint stopped!
+25/04/11 15:09:47 INFO MemoryStore: MemoryStore cleared
+25/04/11 15:09:47 INFO BlockManager: BlockManager stopped
+25/04/11 15:09:47 INFO BlockManagerMaster: BlockManagerMaster stopped
+25/04/11 15:09:47 INFO OutputCommitCoordinator$OutputCommitCoordinatorEndpoint: OutputCommitCoordinator stopped!  
+25/04/11 15:09:47 INFO SparkContext: Successfully stopped SparkContext
+25/04/11 15:09:47 INFO ShutdownHookManager: Shutdown hook called
+25/04/11 15:09:47 INFO ShutdownHookManager: Deleting directory /tmp/spark-964bf958-6511-4628-b420-43eecf5d252b    
+25/04/11 15:09:47 INFO ShutdownHookManager: Deleting directory /tmp/spark-bd505338-8519-48fb-882f-fcc8454bfa18/pyspark-4ac7e345-ea38-490c-935d-7fbf739edc28
+25/04/11 15:09:47 INFO ShutdownHookManager: Deleting directory /tmp/spark-bd505338-8519-48fb-882f-fcc8454bfa18    
+^C
+I have no name!@efadee423099:/app/spark_processing$ ls
+allschemes.xlsx  mysql-connector-j-8.0.33.jar  note.txt  process_data.py
+I have no name!@efadee423099:/app/spark_processing$ cp mysql-connector-j-8.0.33.jar opt/bitnami/spark
+cp: cannot create regular file 'opt/bitnami/spark': No such file or directory
+I have no name!@efadee423099:/app/spark_processing$ cd ..
+I have no name!@efadee423099:/app$ cd ..
+I have no name!@efadee423099:/$ cp /app/spark_processing/mysql-connector-j-8.0.33.jar /opt/bitnami/spark/jars
+I have no name!@efadee423099:/$ cd /opt/bitnami/spark/jars
+I have no name!@efadee423099:/opt/bitnami/spark/jars$ ls
+HikariCP-2.5.1.jar
+JLargeArrays-1.5.jar
+JTransforms-3.1.jar
+RoaringBitmap-0.9.45.jar
+ST4-4.0.4.jar
+activation-1.1.1.jar
+aircompressor-0.27.jar
+algebra_2.12-2.0.1.jar
+annotations-17.0.0.jar
+antlr-runtime-3.5.2.jar
+antlr4-runtime-4.9.3.jar
+aopalliance-repackaged-2.6.1.jar
+arpack-3.0.3.jar
+arpack_combined_all-0.1.jar
+arrow-format-12.0.1.jar
+arrow-memory-core-12.0.1.jar
+arrow-memory-netty-12.0.1.jar
+arrow-vector-12.0.1.jar
+audience-annotations-0.5.0.jar
+avro-1.11.2.jar
+avro-ipc-1.11.2.jar
+avro-mapred-1.11.2.jar
+aws-java-sdk-bundle-1.12.262.jar
+blas-3.0.3.jar
+bonecp-0.8.0.RELEASE.jar
+breeze-macros_2.12-2.1.0.jar
+breeze_2.12-2.1.0.jar
+cats-kernel_2.12-2.1.1.jar
+chill-java-0.10.0.jar
+chill_2.12-0.10.0.jar
+commons-cli-1.5.0.jar
+commons-codec-1.16.1.jar
+commons-collections-3.2.2.jar
+commons-collections4-4.4.jar
+commons-compiler-3.1.9.jar
+commons-compress-1.23.0.jar
+commons-crypto-1.1.0.jar
+commons-dbcp-1.4.jar
+commons-io-2.16.1.jar
+commons-lang-2.6.jar
+commons-lang3-3.12.0.jar
+commons-logging-1.1.3.jar
+commons-math3-3.6.1.jar
+commons-pool-1.5.4.jar
+commons-text-1.10.0.jar
+compress-lzf-1.1.2.jar
+curator-client-2.13.0.jar
+curator-framework-2.13.0.jar
+curator-recipes-2.13.0.jar
+datanucleus-api-jdo-4.2.4.jar
+datanucleus-core-4.1.17.jar
+datanucleus-rdbms-4.1.19.jar
+datasketches-java-3.3.0.jar
+datasketches-memory-2.1.0.jar
+derby-10.14.2.0.jar
+dropwizard-metrics-hadoop-metrics2-reporter-0.1.2.jar
+flatbuffers-java-1.12.0.jar
+gson-2.2.4.jar
+guava-14.0.1.jar
+hadoop-aws-3.3.4.jar
+hadoop-client-api-3.3.4.jar
+hadoop-client-runtime-3.3.4.jar
+hadoop-shaded-guava-1.1.1.jar
+hadoop-yarn-server-web-proxy-3.3.4.jar
+hive-beeline-2.3.9.jar
+hive-cli-2.3.9.jar
+hive-common-2.3.9.jar
+hive-exec-2.3.9-core.jar
+hive-jdbc-2.3.9.jar
+hive-llap-common-2.3.9.jar
+hive-metastore-2.3.9.jar
+hive-serde-2.3.9.jar
+hive-service-rpc-3.1.3.jar
+hive-shims-0.23-2.3.9.jar
+hive-shims-2.3.9.jar
+hive-shims-common-2.3.9.jar
+hive-shims-scheduler-2.3.9.jar
+hive-storage-api-2.8.1.jar
+hk2-api-2.6.1.jar
+hk2-locator-2.6.1.jar
+hk2-utils-2.6.1.jar
+httpclient-4.5.14.jar
+httpcore-4.4.16.jar
+istack-commons-runtime-3.0.8.jar
+ivy-2.5.1.jar
+jackson-annotations-2.15.2.jar
+jackson-core-2.15.2.jar
+jackson-core-asl-1.9.13.jar
+jackson-databind-2.15.2.jar
+jackson-dataformat-yaml-2.15.2.jar
+jackson-datatype-jsr310-2.15.2.jar
+jackson-mapper-asl-1.9.13.jar
+jackson-module-scala_2.12-2.15.2.jar
+jakarta.annotation-api-1.3.5.jar
+jakarta.inject-2.6.1.jar
+jakarta.servlet-api-4.0.3.jar
+jakarta.validation-api-2.0.2.jar
+jakarta.ws.rs-api-2.1.6.jar
+jakarta.xml.bind-api-2.3.2.jar
+janino-3.1.9.jar
+javassist-3.29.2-GA.jar
+javax.jdo-3.2.0-m3.jar
+javolution-5.5.1.jar
+jaxb-runtime-2.3.2.jar
+jcl-over-slf4j-2.0.7.jar
+jdo-api-3.0.1.jar
+jersey-client-2.40.jar
+jersey-common-2.40.jar
+jersey-container-servlet-2.40.jar
+jersey-container-servlet-core-2.40.jar
+jersey-hk2-2.40.jar
+jersey-server-2.40.jar
+jline-2.14.6.jar
+joda-time-2.12.5.jar
+jodd-core-3.5.2.jar
+jpam-1.1.jar
+json-1.8.jar
+json4s-ast_2.12-3.7.0-M11.jar
+json4s-core_2.12-3.7.0-M11.jar
+json4s-jackson_2.12-3.7.0-M11.jar
+json4s-scalap_2.12-3.7.0-M11.jar
+jsr305-3.0.0.jar
+jta-1.1.jar
+jul-to-slf4j-2.0.7.jar
+kryo-shaded-4.0.2.jar
+kubernetes-client-6.7.2.jar
+kubernetes-client-api-6.7.2.jar
+kubernetes-httpclient-okhttp-6.7.2.jar
+kubernetes-model-admissionregistration-6.7.2.jar
+kubernetes-model-apiextensions-6.7.2.jar
+kubernetes-model-apps-6.7.2.jar
+kubernetes-model-autoscaling-6.7.2.jar
+kubernetes-model-batch-6.7.2.jar
+kubernetes-model-certificates-6.7.2.jar
+kubernetes-model-common-6.7.2.jar
+kubernetes-model-coordination-6.7.2.jar
+kubernetes-model-core-6.7.2.jar
+kubernetes-model-discovery-6.7.2.jar
+kubernetes-model-events-6.7.2.jar
+kubernetes-model-extensions-6.7.2.jar
+kubernetes-model-flowcontrol-6.7.2.jar
+kubernetes-model-gatewayapi-6.7.2.jar
+kubernetes-model-metrics-6.7.2.jar
+kubernetes-model-networking-6.7.2.jar
+kubernetes-model-node-6.7.2.jar
+kubernetes-model-policy-6.7.2.jar
+kubernetes-model-rbac-6.7.2.jar
+kubernetes-model-resource-6.7.2.jar
+kubernetes-model-scheduling-6.7.2.jar
+kubernetes-model-storageclass-6.7.2.jar
+lapack-3.0.3.jar
+leveldbjni-all-1.8.jar
+libfb303-0.9.3.jar
+libthrift-0.12.0.jar
+log4j-1.2-api-2.20.0.jar
+log4j-api-2.20.0.jar
+log4j-core-2.20.0.jar
+log4j-slf4j2-impl-2.20.0.jar
+logging-interceptor-3.12.12.jar
+lz4-java-1.8.0.jar
+mesos-1.4.3-shaded-protobuf.jar
+metrics-core-4.2.19.jar
+metrics-graphite-4.2.19.jar
+metrics-jmx-4.2.19.jar
+metrics-json-4.2.19.jar
+metrics-jvm-4.2.19.jar
+minlog-1.3.0.jar
+mysql-connector-j-8.0.33.jar
+netty-all-4.1.96.Final.jar
+netty-buffer-4.1.96.Final.jar
+netty-codec-4.1.96.Final.jar
+netty-codec-http-4.1.96.Final.jar
+netty-codec-http2-4.1.96.Final.jar
+netty-codec-socks-4.1.96.Final.jar
+netty-common-4.1.96.Final.jar
+netty-handler-4.1.96.Final.jar
+netty-handler-proxy-4.1.96.Final.jar
+netty-resolver-4.1.96.Final.jar
+netty-transport-4.1.96.Final.jar
+netty-transport-classes-epoll-4.1.96.Final.jar
+netty-transport-classes-kqueue-4.1.96.Final.jar
+netty-transport-native-epoll-4.1.96.Final-linux-aarch_64.jar
+netty-transport-native-epoll-4.1.96.Final-linux-x86_64.jar
+netty-transport-native-kqueue-4.1.96.Final-osx-aarch_64.jar
+netty-transport-native-kqueue-4.1.96.Final-osx-x86_64.jar
+netty-transport-native-unix-common-4.1.96.Final.jar
+objenesis-3.3.jar
+okhttp-3.12.12.jar
+okio-1.17.6.jar
+opencsv-2.3.jar
+orc-core-1.9.5-shaded-protobuf.jar
+orc-mapreduce-1.9.5-shaded-protobuf.jar
+orc-shims-1.9.5.jar
+oro-2.0.8.jar
+osgi-resource-locator-1.0.3.jar
+paranamer-2.8.jar
+parquet-column-1.13.1.jar
+parquet-common-1.13.1.jar
+parquet-encoding-1.13.1.jar
+parquet-format-structures-1.13.1.jar
+parquet-hadoop-1.13.1.jar
+parquet-jackson-1.13.1.jar
+pickle-1.3.jar
+py4j-0.10.9.7.jar
+rocksdbjni-8.3.2.jar
+scala-collection-compat_2.12-2.7.0.jar
+scala-compiler-2.12.18.jar
+scala-library-2.12.18.jar
+scala-parser-combinators_2.12-2.3.0.jar
+scala-reflect-2.12.18.jar
+scala-xml_2.12-2.1.0.jar
+shims-0.9.45.jar
+slf4j-api-2.0.7.jar
+snakeyaml-2.0.jar
+snakeyaml-engine-2.6.jar
+snappy-java-1.1.10.5.jar
+spark-catalyst_2.12-3.5.4.jar
+spark-common-utils_2.12-3.5.4.jar
+spark-core_2.12-3.5.4.jar
+spark-graphx_2.12-3.5.4.jar
+spark-hive-thriftserver_2.12-3.5.4.jar
+spark-hive_2.12-3.5.4.jar
+spark-kubernetes_2.12-3.5.4.jar
+spark-kvstore_2.12-3.5.4.jar
+spark-launcher_2.12-3.5.4.jar
+spark-mesos_2.12-3.5.4.jar
+spark-mllib-local_2.12-3.5.4.jar
+spark-mllib_2.12-3.5.4.jar
+spark-network-common_2.12-3.5.4.jar
+spark-network-shuffle_2.12-3.5.4.jar
+spark-repl_2.12-3.5.4.jar
+spark-sketch_2.12-3.5.4.jar
+spark-sql-api_2.12-3.5.4.jar
+spark-sql_2.12-3.5.4.jar
+spark-streaming_2.12-3.5.4.jar
+spark-tags_2.12-3.5.4.jar
+spark-unsafe_2.12-3.5.4.jar
+spark-yarn_2.12-3.5.4.jar
+I have no name!@efadee423099:/opt/bitnami/spark/jars$ cd ..
+I have no name!@efadee423099:/opt/bitnami/spark$ cd ..
+I have no name!@efadee423099:/opt/bitnami$ cd ..
+I have no name!@efadee423099:/opt$ cd ..
+I have no name!@efadee423099:/$ cd app/spark_processing
+I have no name!@efadee423099:/app/spark_processing$ python process_data.py
+/app/spark_processing/process_data.py:139: SyntaxWarning: invalid escape sequence '\M'
+  '''
+/app/spark_processing/process_data.py:155: SyntaxWarning: invalid escape sequence '\M'
+  '''
+25/04/11 15:12:41 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+Setting default log level to "WARN".
+To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+Traceback (most recent call last):
+  File "/.local/lib/python3.12/site-packages/pandas/compat/_optional.py", line 135, in import_optional_dependency
+    module = importlib.import_module(name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/bitnami/python/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'openpyxl'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/app/spark_processing/process_data.py", line 135, in <module>
+    fetchRecords()
+    ^^^^^^^^^^^^^^
+  File "/app/spark_processing/process_data.py", line 14, in fetchRecords
+    df =  pd.read_excel('allschemes.xlsx')  
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/.local/lib/python3.12/site-packages/pandas/io/excel/_base.py", line 495, in read_excel
+    io = ExcelFile(
+         ^^^^^^^^^^
+  File "/.local/lib/python3.12/site-packages/pandas/io/excel/_base.py", line 1567, in __init__
+    self._reader = self._engines[engine](
+                   ^^^^^^^^^^^^^^^^^^^^^^
+  File "/.local/lib/python3.12/site-packages/pandas/io/excel/_openpyxl.py", line 552, in __init__
+    import_optional_dependency("openpyxl")
+  File "/.local/lib/python3.12/site-packages/pandas/compat/_optional.py", line 138, in import_optional_dependency 
+    raise ImportError(msg)
+ImportError: Missing optional dependency 'openpyxl'.  Use pip or conda to install openpyxl.
+I have no name!@efadee423099:/app/spark_processing$ pip install openpyxl
+WARNING: The directory '/.cache/pip' or its parent directory is not owned or is not writable by the current user. The cache has been disabled. Check the permissions and owner of that directory. If executing pip with sudo, you should use sudo's -H flag.
+Defaulting to user installation because normal site-packages is not writeable
+DEPRECATION: Loading egg at /opt/bitnami/python/lib/python3.12/site-packages/pip-23.3.2-py3.12.egg is deprecated. pip 25.1 will enforce this behaviour change. A possible replacement is to use pip for package installation. Discussion can be found at https://github.com/pypa/pip/issues/12330
+Collecting openpyxl
+  Downloading openpyxl-3.1.5-py2.py3-none-any.whl.metadata (2.5 kB)
+Collecting et-xmlfile (from openpyxl)
+  Downloading et_xmlfile-2.0.0-py3-none-any.whl.metadata (2.7 kB)
+Downloading openpyxl-3.1.5-py2.py3-none-any.whl (250 kB)
+Downloading et_xmlfile-2.0.0-py3-none-any.whl (18 kB)
+Installing collected packages: et-xmlfile, openpyxl
+Successfully installed et-xmlfile-2.0.0 openpyxl-3.1.5
+I have no name!@efadee423099:/app/spark_processing$ python process_data.py
+/app/spark_processing/process_data.py:139: SyntaxWarning: invalid escape sequence '\M'
+  '''
+/app/spark_processing/process_data.py:155: SyntaxWarning: invalid escape sequence '\M'
+  '''
+25/04/11 15:13:09 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+Setting default log level to "WARN".
+To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+Pandas Columns: Index(['id', 'scheme_name', 'open_date', 'State', 'implementing_agency',
+       'category', 'subcategory', 'tags', 'brief_description',
+       'detailed_description', 'references', 'benefits', 'exclusions',
+       'eligibility_criteria', 'application_process', 'documents_required'],
+      dtype='object')
+Applicant Counts: {'Woman': 3, 'Child': 2, 'Disabled': 4, 'Backward': 5, 'Student': 8, 'Farmer': 7}
+Department Counts: {'0': 44, 'Telangana Scheduled Castes Co-Operative Development Corporation Ltd.': 1, 'Minorities Welfare Department, Telangana': 2, 'Commissionerate Of Women Development & Child Welfare.': 1, 'Department Of Women Development And Child Welfare, Government Of Telangana': 1, 'Department Of Agriculture And Cooperation In Collaboration With The State Seed Development Corporation (SSDC)': 1, 'Forest Department Of The Government Of Telangana': 1, 'Backward Classes Welfare Department, Telangana': 1, 'Panchayat Raj And Rural Development Department.': 1, 'Backward Classes Welfare Department, Government Of Telangana': 1, 'Health, Medical And Family Welfare Department': 1, 'Indian Council Of a': 1, 'Backward Classes Welfare Department, Telangana': 1, 'Panchayat Raj And Rural Development Department.': 1, 'Backward Classes Welfare Department, Government Of Telangana': 1,a': 1, 'Backward Classes Welfare Department, Telangana': 1, 'Panchayat Raj And Rural Development Department.': 1, 'Backward Classes Welfare Department, Government Of Telangana': 1, 'Health, Medical And Family Welfare Department': 1, 'Indian Council Of Medical Research, Government Of India': 1, 'Banks': 1, 'Biotechnology Industry Research Assistance Council': 1, 'Federation Of Indian Chambers Of Commerce & Industry (FICCI), New Delhi': 1, 'Employees State Insurance Corporation': 1, 'Ministry Of Housing And Urban Affairs (MoHUA)': 1, 'Gram Panchayats (GPs)': 1, 'Regional/ Sub-regional Offices/ Training Centres Of The Board, Coir Board, Kochi': 1, 'Khadi And Village Industries Commission (KVIC)': 1, 'Zonal Railways And RPSF': 1, 'Indo French Centre For Promotion Of Advanced Research/Centre Franco-Indien Pour La Promotion De La Recherche AvancÃ©e': 1, 'Institutions Under The Ministry Of Culture, Government Of India': 1, 'National Health Authority (NHA)': 1, 'Post Office Branch Or A Designated Bank': 1, 'Regional Cancer Centre': 1, 'Common Service Centers': 1, 'Indian Council Of Agricultural Research': 3, 'Central/ State Handloom And Handicrafts Development Corporations': 1, 'University Grants Commission (UGC)': 2, 'Science And Engineering Research Board, Government Of India': 1}
+Year Counts: {2015: 11, 2013: 2, 2016: 5, 2021: 2, 2023: 2, 2022: 1, 2014: 3, 2010: 1, 2018: 5, None: 33, 2011: 5, 2006: 1, 2008: 2, 2009: 2, 2007: 1, 2019: 1, 1981: 1}
+25/04/11 15:13:37 WARN SparkStringUtils: Truncated the string representation of a plan since it was too large. This behavior can be adjusted by setting 'spark.sql.debug.maxToStringFields'.
+:) Data saved to MySQL! :)
+I have no name!@efadee423099:/app/spark_processing$
+
+
+
+
+
+
+
+
+
+
+
+
+
+a': 1, 'Backward Classes Welfare Department, Telangana': 1, 'Panchayat Raj And Rural Development Department.': 1, 'Backward Classes Welfare Department, Government Of Telangana': 1, 'Health, Medical And Family Welfare Department': 1, 'Indian Council Of Medical Research, Government Of India': 1, 'Banks': 1, 'Biotechnology Industry Research Assistance Council': 1, 'Federation Of Indian Chambers Of Commerce & Industry (FICCI), New Delhi': 1, 'Employees State Insurance Corporation': 1, 'Ministry Of Housing And Urban Affairs (MoHUA)': 1, 'Gram Panchayats (GPs)': 1, 'Regional/ Sub-regional Offices/ Training Centres Of The Board, Coir Board, Kochi': 1, 'Khadi And Village Industries Commission (KVIC)': 1, 'Zonal Railways And RPSF': 1, 'Indo French Centre For Promotion Of Advanced Research/Centre Franco-Indien Pour La Promotion De La Recherche AvancÃ©e': 1, 'Institutions Under The Ministry Of Culture, Government Of India': 1, 'National Health Authority (NHA)': 1, 'Post Office Branch Or A Designated Bank': 1, 'Regional Cancer Centre': 1, 'Common Service Centers': 1, 'Indian Council Of Agricultural Research': 3, 'Central/ State Handloom And Handicrafts Development Corporations': 1, 'University Grants Commission (UGC)': 2, 'Science And Engineering Research Board, Government Of India': 1}
+Year Counts: {2015: 11, 2013: 2, 2016: 5, 2021: 2, 2023: 2, 2022: 1, 2014: 3, 2010: 1, 2018: 5, None: 33, 2011: 5, 2006: 1, 2008: 2, 2009: 2, 2007: 1, 2019: 1, 1981: 1}
+25/04/11 15:13:37 WARN SparkStringUtils: Truncated the string representation of a plan since it was too large. This behavior can be adjusted by setting 'spark.sql.debug.maxToStringFields'.
+:) Data saved to MySQL! :)
+I have no name!@efadee423099:/app/spark_processing$
+
+
+a': 1, 'Backward Classes Welfare Department, Telangana': 1, 'Panchayat Raj And Rural Development Department.': 1, 'Backward Classes Welfare Department, Government Of Telangana': 1, 'Health, Medical And Family Welfare Department': 1, 'Indian Council Of Medical Research, Government Of India': 1, 'Banks': 1, 'Biotechnology Industry Research Assistance Council': 1, 'Federation Of Indian Chambers Of Commerce & Industry (FICCI), New Delhi': 1, 'Employees State Insurance Corporation': 1, 'Ministry Of Housing And Urban Affairs (MoHUA)': 1, 'Gram Panchayats (GPs)': 1, 'Regional/ Sub-regional Offices/ Training Centres Of The Board, Coir Board, Kochi': 1, 'Khadi And Village Industries Commission (KVIC)': 1, 'Zonal Railways And RPSF': 1, 'Indo French Centre For Promotion Of Advanced Research/Centre Franco-Indien Pour La Promotion De La Recherche AvancÃ©e': 1, 'Institutions Under The Ministry Of Culture, Government Of India': 1, 'National Health Authority (NHA)': 1, 'Post Office Branch Or A Designated Bank': 1, 'Regional Cancer Centre': 1, 'Common Service Centers': 1, 'Indian Council Of Agricultural Research': 3, 'Central/ State Handloom And Handicrafts Development Corporations': 1, 'University Grants Commission (UGC)': 2, 'Science And Engineering Research Board, Government Of India': 1}
+Year Counts: {2015: 11, 2013: 2, 2016: 5, 2021: 2, 2023: 2, 2022: 1, 2014: 3, 2010: 1, 2018: 5, None: 33, 2011: 5, 2006: 1, 2008: 2, 2009: 2, 2007: 1, 2019: 1, 1981: 1}
+25/04/11 15:13:37 WARN SparkStringUtils: Truncated the string representation of a plan since it was too large. This behavior can be adjusted by setting 'spark.sql.debug.maxToStringFields'.
+:) Data saved to MySQL! :)
+I have no name!@efadee423099:/app/spark_processing$
+

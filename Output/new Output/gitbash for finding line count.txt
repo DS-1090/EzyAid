@@ -1,0 +1,980 @@
+
+upend@DS MINGW64 ~ (master)
+$ git ls-files | xargs wc -l
+0
+
+upend@DS MINGW64 ~ (master)
+$ ls
+ AppData/
+'Application Data'@
+ Contacts/
+ Cookies@
+'Creative Cloud Files Personal Account divya.yennam5544@gmail.com 42F23C4C5B7EC19A0A495C32@AdobeID'/
+ Desktop/
+ Documents/
+ Downloads/
+ Dropbox/
+ edb_npgsql.exe*
+'Ethics and Governance A Few Concepts.ppt'
+ Favorites/
+ FinalUAV_VidTEst.ipynb
+ gitssh.txt
+ gssoc/
+'Indian post office is my companion.pub'
+ Links/
+'Local Settings'@
+ Music/
+'My Documents'@
+ NetHood@
+ NTUSER.DAT
+ ntuser.dat.LOG1
+ ntuser.dat.LOG2
+ NTUSER.DAT{d86bd830-9e82-11ef-96ad-9b134db362ac}.TM.blf
+ NTUSER.DAT{d86bd830-9e82-11ef-96ad-9b134db362ac}.TMContainer00000000000000000001.regtrans-ms
+ NTUSER.DAT{d86bd830-9e82-11ef-96ad-9b134db362ac}.TMContainer00000000000000000002.regtrans-ms
+ ntuser.ini
+ OneDrive/
+'Panel Discussion CVC'/
+ Pictures/
+ postgresql_17.exe*
+'Postman Agent'/
+ PrintHood@
+ Recent@
+ runs/
+'Sacred Verses for Exhibit making 16.11.2023.pub'
+'Sacred Verses master.pub'
+'Sacred Verses working.pub'
+'Saved Games'/
+ Searches/
+'Secretary CVC Interaction with CVOs Dated 17.11.2023.docx'
+ SendTo@
+ ssh.txt
+ ssh.txt.pub
+'Start Menu'@
+ Templates@
+ train.csv
+ UAV.ipynb
+ UAV2.ipynb
+ ubuntu/
+ Untitled.ipynb
+ Untitled1.ipynb
+ Videos/
+ yolov8n.pt
+
+upend@DS MINGW64 ~ (master)
+$ cd ..
+
+upend@DS MINGW64 /c/Users
+$ ;s
+bash: syntax error near unexpected token `;'
+
+upend@DS MINGW64 /c/Users
+$ ls
+'All Users'@   Default/  'Default User'@   defaultuser100000/   desktop.ini   Public/   upend/
+
+upend@DS MINGW64 /c/Users
+$ cd ..
+
+upend@DS MINGW64 /c
+$ cd ..
+
+upend@DS MINGW64 /
+$ cd ..
+
+upend@DS MINGW64 /
+$ ls
+bin/  dev/  git-bash.exe*  LICENSE.txt  proc/              tmp/          unins001.exe*  usr/
+cmd/  etc/  git-cmd.exe*   mingw64/     ReleaseNotes.html  unins001.dat  unins001.msg
+
+upend@DS MINGW64 /
+$ cd /d
+
+upend@DS MINGW64 /d
+$ ls
+'$RECYCLE.BIN'/     django/               Git/                      notificationapp/  'System Volume Information'/
+ Academics/         docai/                gssoc/                   'NYT api'/          translator/
+'ALL FILES'/        Docker_Learnings/     hyd_home_price_predict/   Obsidian/          uav-img/
+'android studio'/   DSA.GFG/             'Infinity 2k25'/          'Obsidian Vault'/   Vivaldi/
+ CNN_Fabric/        DSA_HIVE/             MajorProject/             Poetry/            xampp/
+ confid/            Entrepreneur_Model/  'Microsoft VS Code'/       poetry-site/       zsh/
+ Config.Msi/        flutter/              Mood_Tunes/               rtr2BC9.tmp
+
+upend@DS MINGW64 /d
+$ cd MajorProject
+
+upend@DS MINGW64 /d/MajorProject
+$ cd EzyAid
+
+upend@DS MINGW64 /d/MajorProject/EzyAid (main)
+$ ls
+ backend/              frontend/     'old files'/   redis.conf         spark_processing/
+ docker-compose.yaml  'new Output'/   README.md     requirements.txt
+
+upend@DS MINGW64 /d/MajorProject/EzyAid (main)
+$ git ls-files | xargs wc -l
+      1 README.md
+     18 backend/eamiddleware/Dockerfile
+     32 backend/eamiddleware/db.sqlite3
+      0 backend/eamiddleware/eamiddleware/__init__.py
+      1 backend/eamiddleware/eamiddleware/__pycache__/__init__.cpython-311.pyc
+      1 backend/eamiddleware/eamiddleware/__pycache__/__init__.cpython-312.pyc
+     13 backend/eamiddleware/eamiddleware/__pycache__/models.cpython-311.pyc
+     12 backend/eamiddleware/eamiddleware/__pycache__/serializers.cpython-311.pyc
+     27 backend/eamiddleware/eamiddleware/__pycache__/settings.cpython-311.pyc
+     26 backend/eamiddleware/eamiddleware/__pycache__/settings.cpython-312.pyc
+     23 backend/eamiddleware/eamiddleware/__pycache__/urls.cpython-311.pyc
+     17 backend/eamiddleware/eamiddleware/__pycache__/urls.cpython-312.pyc
+     23 backend/eamiddleware/eamiddleware/__pycache__/views.cpython-311.pyc
+     11 backend/eamiddleware/eamiddleware/__pycache__/wsgi.cpython-311.pyc
+     12 backend/eamiddleware/eamiddleware/__pycache__/wsgi.cpython-312.pyc
+     16 backend/eamiddleware/eamiddleware/asgi.py
+     58 backend/eamiddleware/eamiddleware/migrations/0001_initial.py
+     29 backend/eamiddleware/eamiddleware/migrations/0002_alter_applicantcounts_table_alter_deptcounts_table_and_more.py
+      0 backend/eamiddleware/eamiddleware/migrations/__init__.py
+     32 backend/eamiddleware/eamiddleware/migrations/__pycache__/0001_initial.cpython-311.pyc
+     27 backend/eamiddleware/eamiddleware/migrations/__pycache__/0002_alter_applicantcounts_table_alter_deptcounts_table_and_more.cpython-311.pyc
+      1 backend/eamiddleware/eamiddleware/migrations/__pycache__/__init__.cpython-311.pyc
+     56 backend/eamiddleware/eamiddleware/models.py
+     25 backend/eamiddleware/eamiddleware/serializers.py
+    146 backend/eamiddleware/eamiddleware/settings.py
+     29 backend/eamiddleware/eamiddleware/urls.py
+     87 backend/eamiddleware/eamiddleware/views.py
+     16 backend/eamiddleware/eamiddleware/wsgi.py
+     22 backend/eamiddleware/manage.py
+     20 backend/eamiddleware/requirements.txt
+      9 backend/kafkaconsumer/Dockerfile
+     39 backend/kafkaconsumer/kafkaconsumer.py
+      2 backend/kafkaconsumer/requirements.txt
+    161 docker-compose.yaml
+     45 frontend/.gitignore
+     33 frontend/.metadata
+     16 frontend/README.md
+     28 frontend/analysis_options.yaml
+     14 frontend/android/.gitignore
+     44 frontend/android/app/build.gradle.kts
+      7 frontend/android/app/src/debug/AndroidManifest.xml
+     47 frontend/android/app/src/main/AndroidManifest.xml
+      5 frontend/android/app/src/main/kotlin/com/osmania/frontend/MainActivity.kt
+     12 frontend/android/app/src/main/res/drawable-v21/launch_background.xml
+     12 frontend/android/app/src/main/res/drawable/launch_background.xml
+   1728 frontend/android/app/src/main/res/mipmap-hdpi/ic_launcher.png
+   1728 frontend/android/app/src/main/res/mipmap-mdpi/ic_launcher.png
+   1728 frontend/android/app/src/main/res/mipmap-xhdpi/ic_launcher.png
+   1728 frontend/android/app/src/main/res/mipmap-xxhdpi/ic_launcher.png
+   1728 frontend/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png
+     18 frontend/android/app/src/main/res/values-night/styles.xml
+     18 frontend/android/app/src/main/res/values/styles.xml
+      7 frontend/android/app/src/profile/AndroidManifest.xml
+     21 frontend/android/build.gradle.kts
+      3 frontend/android/gradle.properties
+      5 frontend/android/gradle/wrapper/gradle-wrapper.properties
+     25 frontend/android/settings.gradle.kts
+   1728 frontend/assets/ezyaid.png
+      3 frontend/devtools_options.yaml
+     34 frontend/ios/.gitignore
+     26 frontend/ios/Flutter/AppFrameworkInfo.plist
+      1 frontend/ios/Flutter/Debug.xcconfig
+      1 frontend/ios/Flutter/Release.xcconfig
+    616 frontend/ios/Runner.xcodeproj/project.pbxproj
+      7 frontend/ios/Runner.xcodeproj/project.xcworkspace/contents.xcworkspacedata
+      8 frontend/ios/Runner.xcodeproj/project.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist
+      8 frontend/ios/Runner.xcodeproj/project.xcworkspace/xcshareddata/WorkspaceSettings.xcsettings
+     99 frontend/ios/Runner.xcodeproj/xcshareddata/xcschemes/Runner.xcscheme
+      7 frontend/ios/Runner.xcworkspace/contents.xcworkspacedata
+      8 frontend/ios/Runner.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist
+      8 frontend/ios/Runner.xcworkspace/xcshareddata/WorkspaceSettings.xcsettings
+     13 frontend/ios/Runner/AppDelegate.swift
+    122 frontend/ios/Runner/Assets.xcassets/AppIcon.appiconset/Contents.json
+      5 frontend/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-1024x1024@1x.png
+      2 frontend/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-20x20@1x.png
+      3 frontend/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-20x20@2x.png
+      3 frontend/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-20x20@3x.png
+      3 frontend/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-29x29@1x.png
+      2 frontend/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-29x29@2x.png
+      2 frontend/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-29x29@3x.png
+      3 frontend/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-40x40@1x.png
+      3 frontend/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-40x40@2x.png
+      6 frontend/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-40x40@3x.png
+      6 frontend/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-60x60@2x.png
+      7 frontend/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-60x60@3x.png
+      6 frontend/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-76x76@1x.png
+      4 frontend/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-76x76@2x.png
+      7 frontend/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-83.5x83.5@2x.png
+     23 frontend/ios/Runner/Assets.xcassets/LaunchImage.imageset/Contents.json
+      2 frontend/ios/Runner/Assets.xcassets/LaunchImage.imageset/LaunchImage.png
+      2 frontend/ios/Runner/Assets.xcassets/LaunchImage.imageset/LaunchImage@2x.png
+      2 frontend/ios/Runner/Assets.xcassets/LaunchImage.imageset/LaunchImage@3x.png
+      4 frontend/ios/Runner/Assets.xcassets/LaunchImage.imageset/README.md
+     37 frontend/ios/Runner/Base.lproj/LaunchScreen.storyboard
+     26 frontend/ios/Runner/Base.lproj/Main.storyboard
+     49 frontend/ios/Runner/Info.plist
+      1 frontend/ios/Runner/Runner-Bridging-Header.h
+     12 frontend/ios/RunnerTests/RunnerTests.swift
+    651 frontend/lib/dashboard.dart
+    132 frontend/lib/developerpage.dart
+     60 frontend/lib/favoritespage.dart
+     38 frontend/lib/favoritesprovider.dart
+     44 frontend/lib/fontprovider.dart
+     11 frontend/lib/langprovider.dart
+    426 frontend/lib/langschemedetailspage.dart
+    100 frontend/lib/langschemespage.dart
+     25 frontend/lib/main.dart
+    368 frontend/lib/meeseva_centers_page.dart
+    112 frontend/lib/notifypage.dart
+    123 frontend/lib/profilepage.dart
+    168 frontend/lib/referencespage.dart
+    217 frontend/lib/registrationpage.dart
+    169 frontend/lib/schemedetailspage.dart
+    374 frontend/lib/schemespage.dart
+     15 frontend/lib/text_to_speech.dart
+    132 frontend/lib/welcomepage.dart
+    458 frontend/pubspec.lock
+    105 frontend/pubspec.yaml
+     30 frontend/test/widget_test.dart
+wc: new: No such file or directory
+wc: Output/diagram-export-5-2-2025-11_59_09-AM.png: No such file or directory
+wc: new: No such file or directory
+wc: Output/diagram-export-5-2-2025-12_00_11-PM.png: No such file or directory
+wc: new: No such file or directory
+wc: Output/django: No such file or directory
+wc: logs: No such file or directory
+wc: new: No such file or directory
+wc: Output/kafka: No such file or directory
+wc: cons: No such file or directory
+wc: new: No such file or directory
+wc: Output/kafka: No such file or directory
+wc: prod: No such file or directory
+wc: logs: No such file or directory
+wc: new: No such file or directory
+wc: Output/kafkacons2604.txt: No such file or directory
+wc: new: No such file or directory
+wc: Output/mysql: No such file or directory
+wc: logs: No such file or directory
+wc: new: No such file or directory
+wc: Output/mysql2604.txt: No such file or directory
+wc: new: No such file or directory
+wc: Output/post: No such file or directory
+wc: req: No such file or directory
+wc: for: No such file or directory
+wc: debezium.txt: No such file or directory
+wc: new: No such file or directory
+wc: Output/redis: No such file or directory
+wc: logs: No such file or directory
+wc: new: No such file or directory
+wc: Output/redis-26/04.txt: No such file or directory
+wc: new: No such file or directory
+wc: Output/spark: No such file or directory
+wc: logs: No such file or directory
+wc: old: No such file or directory
+wc: files/Output: No such file or directory
+wc: Screenshot/MYSQL: No such file or directory
+wc: SCHEME: No such file or directory
+wc: TABLE.png: No such file or directory
+wc: old: No such file or directory
+wc: files/Output: No such file or directory
+wc: Screenshot/MYSQL: No such file or directory
+wc: TABLE.png: No such file or directory
+wc: old: No such file or directory
+wc: files/Output: No such file or directory
+wc: Screenshot/Recording: No such file or directory
+wc: 2025-03-31: No such file or directory
+wc: 220103.mp4: No such file or directory
+wc: old: No such file or directory
+wc: files/Output: No such file or directory
+wc: Screenshot/Spark: No such file or directory
+wc: op.png: No such file or directory
+wc: old: No such file or directory
+wc: files/Output: No such file or directory
+wc: Screenshot/dbtriggers.txt: No such file or directory
+wc: old: No such file or directory
+wc: files/Output: No such file or directory
+wc: Screenshot/djangoMysql.txt: No such file or directory
+wc: old: No such file or directory
+wc: files/Output: No such file or directory
+wc: Screenshot/materials/MySQL: No such file or directory
+wc: Database: No such file or directory
+wc: '(3).png': No such file or directory
+wc: old: No such file or directory
+wc: files/Output: No such file or directory
+wc: Screenshot/materials/abstract.docx: No such file or directory
+wc: old: No such file or directory
+wc: files/Output: No such file or directory
+wc: Screenshot/materials/ezyaid-removebg-preview.png: No such file or directory
+wc: old: No such file or directory
+wc: files/Output: No such file or directory
+wc: Screenshot/mysql: No such file or directory
+wc: create: No such file or directory
+wc: tables.png: No such file or directory
+wc: old: No such file or directory
+wc: files/Output: No such file or directory
+wc: Screenshot/mysql: No such file or directory
+wc: creds.png: No such file or directory
+wc: old: No such file or directory
+wc: files/Output: No such file or directory
+wc: Screenshot/sPARK: No such file or directory
+wc: OP: No such file or directory
+wc: '(2).png': No such file or directory
+wc: old: No such file or directory
+wc: files/Output: No such file or directory
+wc: Screenshot/someImpCmds.txt: No such file or directory
+wc: old: No such file or directory
+wc: files/Output: No such file or directory
+wc: Screenshot/sparkprocess.txt: No such file or directory
+wc: old: No such file or directory
+wc: files/Output: No such file or directory
+wc: Screenshot/tableCreation.txt: No such file or directory
+wc: old: No such file or directory
+wc: files/docker-compose.yaml: No such file or directory
+      8 redis.conf
+     20 requirements.txt
+    560 spark_processing/allschemes.xlsx
+  11473 spark_processing/mysql-connector-j-8.0.33.jar
+    236 spark_processing/note.txt
+    232 spark_processing/process_data.py
+  29188 total
+
+upend@DS MINGW64 /d/MajorProject/EzyAid (main)
+$ git ls-files | grep -vE '(frontend/)' | xargs wc -l
+      1 README.md
+     18 backend/eamiddleware/Dockerfile
+     32 backend/eamiddleware/db.sqlite3
+      0 backend/eamiddleware/eamiddleware/__init__.py
+      1 backend/eamiddleware/eamiddleware/__pycache__/__init__.cpython-311.pyc
+      1 backend/eamiddleware/eamiddleware/__pycache__/__init__.cpython-312.pyc
+     13 backend/eamiddleware/eamiddleware/__pycache__/models.cpython-311.pyc
+     12 backend/eamiddleware/eamiddleware/__pycache__/serializers.cpython-311.pyc
+     27 backend/eamiddleware/eamiddleware/__pycache__/settings.cpython-311.pyc
+     26 backend/eamiddleware/eamiddleware/__pycache__/settings.cpython-312.pyc
+     23 backend/eamiddleware/eamiddleware/__pycache__/urls.cpython-311.pyc
+     17 backend/eamiddleware/eamiddleware/__pycache__/urls.cpython-312.pyc
+     23 backend/eamiddleware/eamiddleware/__pycache__/views.cpython-311.pyc
+     11 backend/eamiddleware/eamiddleware/__pycache__/wsgi.cpython-311.pyc
+     12 backend/eamiddleware/eamiddleware/__pycache__/wsgi.cpython-312.pyc
+     16 backend/eamiddleware/eamiddleware/asgi.py
+     58 backend/eamiddleware/eamiddleware/migrations/0001_initial.py
+     29 backend/eamiddleware/eamiddleware/migrations/0002_alter_applicantcounts_table_alter_deptcounts_table_and_more.py
+      0 backend/eamiddleware/eamiddleware/migrations/__init__.py
+     32 backend/eamiddleware/eamiddleware/migrations/__pycache__/0001_initial.cpython-311.pyc
+     27 backend/eamiddleware/eamiddleware/migrations/__pycache__/0002_alter_applicantcounts_table_alter_deptcounts_table_and_more.cpython-311.pyc
+      1 backend/eamiddleware/eamiddleware/migrations/__pycache__/__init__.cpython-311.pyc
+     56 backend/eamiddleware/eamiddleware/models.py
+     25 backend/eamiddleware/eamiddleware/serializers.py
+    146 backend/eamiddleware/eamiddleware/settings.py
+     29 backend/eamiddleware/eamiddleware/urls.py
+     87 backend/eamiddleware/eamiddleware/views.py
+     16 backend/eamiddleware/eamiddleware/wsgi.py
+     22 backend/eamiddleware/manage.py
+     20 backend/eamiddleware/requirements.txt
+      9 backend/kafkaconsumer/Dockerfile
+     39 backend/kafkaconsumer/kafkaconsumer.py
+      2 backend/kafkaconsumer/requirements.txt
+    161 docker-compose.yaml
+wc: new: No such file or directory
+wc: Output/diagram-export-5-2-2025-11_59_09-AM.png: No such file or directory
+wc: new: No such file or directory
+wc: Output/diagram-export-5-2-2025-12_00_11-PM.png: No such file or directory
+wc: new: No such file or directory
+wc: Output/django: No such file or directory
+wc: logs: No such file or directory
+wc: new: No such file or directory
+wc: Output/kafka: No such file or directory
+wc: cons: No such file or directory
+wc: new: No such file or directory
+wc: Output/kafka: No such file or directory
+wc: prod: No such file or directory
+wc: logs: No such file or directory
+wc: new: No such file or directory
+wc: Output/kafkacons2604.txt: No such file or directory
+wc: new: No such file or directory
+wc: Output/mysql: No such file or directory
+wc: logs: No such file or directory
+wc: new: No such file or directory
+wc: Output/mysql2604.txt: No such file or directory
+wc: new: No such file or directory
+wc: Output/post: No such file or directory
+wc: req: No such file or directory
+wc: for: No such file or directory
+wc: debezium.txt: No such file or directory
+wc: new: No such file or directory
+wc: Output/redis: No such file or directory
+wc: logs: No such file or directory
+wc: new: No such file or directory
+wc: Output/redis-26/04.txt: No such file or directory
+wc: new: No such file or directory
+wc: Output/spark: No such file or directory
+wc: logs: No such file or directory
+wc: old: No such file or directory
+wc: files/Output: No such file or directory
+wc: Screenshot/MYSQL: No such file or directory
+wc: SCHEME: No such file or directory
+wc: TABLE.png: No such file or directory
+wc: old: No such file or directory
+wc: files/Output: No such file or directory
+wc: Screenshot/MYSQL: No such file or directory
+wc: TABLE.png: No such file or directory
+wc: old: No such file or directory
+wc: files/Output: No such file or directory
+wc: Screenshot/Recording: No such file or directory
+wc: 2025-03-31: No such file or directory
+wc: 220103.mp4: No such file or directory
+wc: old: No such file or directory
+wc: files/Output: No such file or directory
+wc: Screenshot/Spark: No such file or directory
+wc: op.png: No such file or directory
+wc: old: No such file or directory
+wc: files/Output: No such file or directory
+wc: Screenshot/dbtriggers.txt: No such file or directory
+wc: old: No such file or directory
+wc: files/Output: No such file or directory
+wc: Screenshot/djangoMysql.txt: No such file or directory
+wc: old: No such file or directory
+wc: files/Output: No such file or directory
+wc: Screenshot/materials/MySQL: No such file or directory
+wc: Database: No such file or directory
+wc: '(3).png': No such file or directory
+wc: old: No such file or directory
+wc: files/Output: No such file or directory
+wc: Screenshot/materials/abstract.docx: No such file or directory
+wc: old: No such file or directory
+wc: files/Output: No such file or directory
+wc: Screenshot/materials/ezyaid-removebg-preview.png: No such file or directory
+wc: old: No such file or directory
+wc: files/Output: No such file or directory
+wc: Screenshot/mysql: No such file or directory
+wc: create: No such file or directory
+wc: tables.png: No such file or directory
+wc: old: No such file or directory
+wc: files/Output: No such file or directory
+wc: Screenshot/mysql: No such file or directory
+wc: creds.png: No such file or directory
+wc: old: No such file or directory
+wc: files/Output: No such file or directory
+wc: Screenshot/sPARK: No such file or directory
+wc: OP: No such file or directory
+wc: '(2).png': No such file or directory
+wc: old: No such file or directory
+wc: files/Output: No such file or directory
+wc: Screenshot/someImpCmds.txt: No such file or directory
+wc: old: No such file or directory
+wc: files/Output: No such file or directory
+wc: Screenshot/sparkprocess.txt: No such file or directory
+wc: old: No such file or directory
+wc: files/Output: No such file or directory
+wc: Screenshot/tableCreation.txt: No such file or directory
+wc: old: No such file or directory
+wc: files/docker-compose.yaml: No such file or directory
+      8 redis.conf
+     20 requirements.txt
+    560 spark_processing/allschemes.xlsx
+  11473 spark_processing/mysql-connector-j-8.0.33.jar
+    236 spark_processing/note.txt
+    232 spark_processing/process_data.py
+  13521 total
+
+upend@DS MINGW64 /d/MajorProject/EzyAid (main)
+$ git ls-files | grep -vE '(frontend/, spark_processing/mysql-connector-j-8.0.33.jar, backend/eamiddleware/eamiddleware/
+__pycache__/)' | xargs wc -l
+      1 README.md
+     18 backend/eamiddleware/Dockerfile
+     32 backend/eamiddleware/db.sqlite3
+      0 backend/eamiddleware/eamiddleware/__init__.py
+      1 backend/eamiddleware/eamiddleware/__pycache__/__init__.cpython-311.pyc
+      1 backend/eamiddleware/eamiddleware/__pycache__/__init__.cpython-312.pyc
+     13 backend/eamiddleware/eamiddleware/__pycache__/models.cpython-311.pyc
+     12 backend/eamiddleware/eamiddleware/__pycache__/serializers.cpython-311.pyc
+     27 backend/eamiddleware/eamiddleware/__pycache__/settings.cpython-311.pyc
+     26 backend/eamiddleware/eamiddleware/__pycache__/settings.cpython-312.pyc
+     23 backend/eamiddleware/eamiddleware/__pycache__/urls.cpython-311.pyc
+     17 backend/eamiddleware/eamiddleware/__pycache__/urls.cpython-312.pyc
+     23 backend/eamiddleware/eamiddleware/__pycache__/views.cpython-311.pyc
+     11 backend/eamiddleware/eamiddleware/__pycache__/wsgi.cpython-311.pyc
+     12 backend/eamiddleware/eamiddleware/__pycache__/wsgi.cpython-312.pyc
+     16 backend/eamiddleware/eamiddleware/asgi.py
+     58 backend/eamiddleware/eamiddleware/migrations/0001_initial.py
+     29 backend/eamiddleware/eamiddleware/migrations/0002_alter_applicantcounts_table_alter_deptcounts_table_and_more.py
+      0 backend/eamiddleware/eamiddleware/migrations/__init__.py
+     32 backend/eamiddleware/eamiddleware/migrations/__pycache__/0001_initial.cpython-311.pyc
+     27 backend/eamiddleware/eamiddleware/migrations/__pycache__/0002_alter_applicantcounts_table_alter_deptcounts_table_and_more.cpython-311.pyc
+      1 backend/eamiddleware/eamiddleware/migrations/__pycache__/__init__.cpython-311.pyc
+     56 backend/eamiddleware/eamiddleware/models.py
+     25 backend/eamiddleware/eamiddleware/serializers.py
+    146 backend/eamiddleware/eamiddleware/settings.py
+     29 backend/eamiddleware/eamiddleware/urls.py
+     87 backend/eamiddleware/eamiddleware/views.py
+     16 backend/eamiddleware/eamiddleware/wsgi.py
+     22 backend/eamiddleware/manage.py
+     20 backend/eamiddleware/requirements.txt
+      9 backend/kafkaconsumer/Dockerfile
+     39 backend/kafkaconsumer/kafkaconsumer.py
+      2 backend/kafkaconsumer/requirements.txt
+    161 docker-compose.yaml
+     45 frontend/.gitignore
+     33 frontend/.metadata
+     16 frontend/README.md
+     28 frontend/analysis_options.yaml
+     14 frontend/android/.gitignore
+     44 frontend/android/app/build.gradle.kts
+      7 frontend/android/app/src/debug/AndroidManifest.xml
+     47 frontend/android/app/src/main/AndroidManifest.xml
+      5 frontend/android/app/src/main/kotlin/com/osmania/frontend/MainActivity.kt
+     12 frontend/android/app/src/main/res/drawable-v21/launch_background.xml
+     12 frontend/android/app/src/main/res/drawable/launch_background.xml
+   1728 frontend/android/app/src/main/res/mipmap-hdpi/ic_launcher.png
+   1728 frontend/android/app/src/main/res/mipmap-mdpi/ic_launcher.png
+   1728 frontend/android/app/src/main/res/mipmap-xhdpi/ic_launcher.png
+   1728 frontend/android/app/src/main/res/mipmap-xxhdpi/ic_launcher.png
+   1728 frontend/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png
+     18 frontend/android/app/src/main/res/values-night/styles.xml
+     18 frontend/android/app/src/main/res/values/styles.xml
+      7 frontend/android/app/src/profile/AndroidManifest.xml
+     21 frontend/android/build.gradle.kts
+      3 frontend/android/gradle.properties
+      5 frontend/android/gradle/wrapper/gradle-wrapper.properties
+     25 frontend/android/settings.gradle.kts
+   1728 frontend/assets/ezyaid.png
+      3 frontend/devtools_options.yaml
+     34 frontend/ios/.gitignore
+     26 frontend/ios/Flutter/AppFrameworkInfo.plist
+      1 frontend/ios/Flutter/Debug.xcconfig
+      1 frontend/ios/Flutter/Release.xcconfig
+    616 frontend/ios/Runner.xcodeproj/project.pbxproj
+      7 frontend/ios/Runner.xcodeproj/project.xcworkspace/contents.xcworkspacedata
+      8 frontend/ios/Runner.xcodeproj/project.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist
+      8 frontend/ios/Runner.xcodeproj/project.xcworkspace/xcshareddata/WorkspaceSettings.xcsettings
+     99 frontend/ios/Runner.xcodeproj/xcshareddata/xcschemes/Runner.xcscheme
+      7 frontend/ios/Runner.xcworkspace/contents.xcworkspacedata
+      8 frontend/ios/Runner.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist
+      8 frontend/ios/Runner.xcworkspace/xcshareddata/WorkspaceSettings.xcsettings
+     13 frontend/ios/Runner/AppDelegate.swift
+    122 frontend/ios/Runner/Assets.xcassets/AppIcon.appiconset/Contents.json
+      5 frontend/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-1024x1024@1x.png
+      2 frontend/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-20x20@1x.png
+      3 frontend/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-20x20@2x.png
+      3 frontend/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-20x20@3x.png
+      3 frontend/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-29x29@1x.png
+      2 frontend/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-29x29@2x.png
+      2 frontend/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-29x29@3x.png
+      3 frontend/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-40x40@1x.png
+      3 frontend/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-40x40@2x.png
+      6 frontend/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-40x40@3x.png
+      6 frontend/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-60x60@2x.png
+      7 frontend/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-60x60@3x.png
+      6 frontend/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-76x76@1x.png
+      4 frontend/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-76x76@2x.png
+      7 frontend/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-83.5x83.5@2x.png
+     23 frontend/ios/Runner/Assets.xcassets/LaunchImage.imageset/Contents.json
+      2 frontend/ios/Runner/Assets.xcassets/LaunchImage.imageset/LaunchImage.png
+      2 frontend/ios/Runner/Assets.xcassets/LaunchImage.imageset/LaunchImage@2x.png
+      2 frontend/ios/Runner/Assets.xcassets/LaunchImage.imageset/LaunchImage@3x.png
+      4 frontend/ios/Runner/Assets.xcassets/LaunchImage.imageset/README.md
+     37 frontend/ios/Runner/Base.lproj/LaunchScreen.storyboard
+     26 frontend/ios/Runner/Base.lproj/Main.storyboard
+     49 frontend/ios/Runner/Info.plist
+      1 frontend/ios/Runner/Runner-Bridging-Header.h
+     12 frontend/ios/RunnerTests/RunnerTests.swift
+    651 frontend/lib/dashboard.dart
+    132 frontend/lib/developerpage.dart
+     60 frontend/lib/favoritespage.dart
+     38 frontend/lib/favoritesprovider.dart
+     44 frontend/lib/fontprovider.dart
+     11 frontend/lib/langprovider.dart
+    426 frontend/lib/langschemedetailspage.dart
+    100 frontend/lib/langschemespage.dart
+     25 frontend/lib/main.dart
+    368 frontend/lib/meeseva_centers_page.dart
+    112 frontend/lib/notifypage.dart
+    123 frontend/lib/profilepage.dart
+    168 frontend/lib/referencespage.dart
+    217 frontend/lib/registrationpage.dart
+    169 frontend/lib/schemedetailspage.dart
+    374 frontend/lib/schemespage.dart
+     15 frontend/lib/text_to_speech.dart
+    132 frontend/lib/welcomepage.dart
+    458 frontend/pubspec.lock
+    105 frontend/pubspec.yaml
+     30 frontend/test/widget_test.dart
+wc: new: No such file or directory
+wc: Output/diagram-export-5-2-2025-11_59_09-AM.png: No such file or directory
+wc: new: No such file or directory
+wc: Output/diagram-export-5-2-2025-12_00_11-PM.png: No such file or directory
+wc: new: No such file or directory
+wc: Output/django: No such file or directory
+wc: logs: No such file or directory
+wc: new: No such file or directory
+wc: Output/kafka: No such file or directory
+wc: cons: No such file or directory
+wc: new: No such file or directory
+wc: Output/kafka: No such file or directory
+wc: prod: No such file or directory
+wc: logs: No such file or directory
+wc: new: No such file or directory
+wc: Output/kafkacons2604.txt: No such file or directory
+wc: new: No such file or directory
+wc: Output/mysql: No such file or directory
+wc: logs: No such file or directory
+wc: new: No such file or directory
+wc: Output/mysql2604.txt: No such file or directory
+wc: new: No such file or directory
+wc: Output/post: No such file or directory
+wc: req: No such file or directory
+wc: for: No such file or directory
+wc: debezium.txt: No such file or directory
+wc: new: No such file or directory
+wc: Output/redis: No such file or directory
+wc: logs: No such file or directory
+wc: new: No such file or directory
+wc: Output/redis-26/04.txt: No such file or directory
+wc: new: No such file or directory
+wc: Output/spark: No such file or directory
+wc: logs: No such file or directory
+wc: old: No such file or directory
+wc: files/Output: No such file or directory
+wc: Screenshot/MYSQL: No such file or directory
+wc: SCHEME: No such file or directory
+wc: TABLE.png: No such file or directory
+wc: old: No such file or directory
+wc: files/Output: No such file or directory
+wc: Screenshot/MYSQL: No such file or directory
+wc: TABLE.png: No such file or directory
+wc: old: No such file or directory
+wc: files/Output: No such file or directory
+wc: Screenshot/Recording: No such file or directory
+wc: 2025-03-31: No such file or directory
+wc: 220103.mp4: No such file or directory
+wc: old: No such file or directory
+wc: files/Output: No such file or directory
+wc: Screenshot/Spark: No such file or directory
+wc: op.png: No such file or directory
+wc: old: No such file or directory
+wc: files/Output: No such file or directory
+wc: Screenshot/dbtriggers.txt: No such file or directory
+wc: old: No such file or directory
+wc: files/Output: No such file or directory
+wc: Screenshot/djangoMysql.txt: No such file or directory
+wc: old: No such file or directory
+wc: files/Output: No such file or directory
+wc: Screenshot/materials/MySQL: No such file or directory
+wc: Database: No such file or directory
+wc: '(3).png': No such file or directory
+wc: old: No such file or directory
+wc: files/Output: No such file or directory
+wc: Screenshot/materials/abstract.docx: No such file or directory
+wc: old: No such file or directory
+wc: files/Output: No such file or directory
+wc: Screenshot/materials/ezyaid-removebg-preview.png: No such file or directory
+wc: old: No such file or directory
+wc: files/Output: No such file or directory
+wc: Screenshot/mysql: No such file or directory
+wc: create: No such file or directory
+wc: tables.png: No such file or directory
+wc: old: No such file or directory
+wc: files/Output: No such file or directory
+wc: Screenshot/mysql: No such file or directory
+wc: creds.png: No such file or directory
+wc: old: No such file or directory
+wc: files/Output: No such file or directory
+wc: Screenshot/sPARK: No such file or directory
+wc: OP: No such file or directory
+wc: '(2).png': No such file or directory
+wc: old: No such file or directory
+wc: files/Output: No such file or directory
+wc: Screenshot/someImpCmds.txt: No such file or directory
+wc: old: No such file or directory
+wc: files/Output: No such file or directory
+wc: Screenshot/sparkprocess.txt: No such file or directory
+wc: old: No such file or directory
+wc: files/Output: No such file or directory
+wc: Screenshot/tableCreation.txt: No such file or directory
+wc: old: No such file or directory
+wc: files/docker-compose.yaml: No such file or directory
+      8 redis.conf
+     20 requirements.txt
+    560 spark_processing/allschemes.xlsx
+  11473 spark_processing/mysql-connector-j-8.0.33.jar
+    236 spark_processing/note.txt
+    232 spark_processing/process_data.py
+  29188 total
+
+upend@DS MINGW64 /d/MajorProject/EzyAid (main)
+$ git ls-files | grep -vE '(frontend/| spark_processing/mysql-connector-j-8.0.33.jar| backend/eamiddleware/eamiddleware/
+__pycache__/)' | xargs wc -l
+      1 README.md
+     18 backend/eamiddleware/Dockerfile
+     32 backend/eamiddleware/db.sqlite3
+      0 backend/eamiddleware/eamiddleware/__init__.py
+      1 backend/eamiddleware/eamiddleware/__pycache__/__init__.cpython-311.pyc
+      1 backend/eamiddleware/eamiddleware/__pycache__/__init__.cpython-312.pyc
+     13 backend/eamiddleware/eamiddleware/__pycache__/models.cpython-311.pyc
+     12 backend/eamiddleware/eamiddleware/__pycache__/serializers.cpython-311.pyc
+     27 backend/eamiddleware/eamiddleware/__pycache__/settings.cpython-311.pyc
+     26 backend/eamiddleware/eamiddleware/__pycache__/settings.cpython-312.pyc
+     23 backend/eamiddleware/eamiddleware/__pycache__/urls.cpython-311.pyc
+     17 backend/eamiddleware/eamiddleware/__pycache__/urls.cpython-312.pyc
+     23 backend/eamiddleware/eamiddleware/__pycache__/views.cpython-311.pyc
+     11 backend/eamiddleware/eamiddleware/__pycache__/wsgi.cpython-311.pyc
+     12 backend/eamiddleware/eamiddleware/__pycache__/wsgi.cpython-312.pyc
+     16 backend/eamiddleware/eamiddleware/asgi.py
+     58 backend/eamiddleware/eamiddleware/migrations/0001_initial.py
+     29 backend/eamiddleware/eamiddleware/migrations/0002_alter_applicantcounts_table_alter_deptcounts_table_and_more.py
+      0 backend/eamiddleware/eamiddleware/migrations/__init__.py
+     32 backend/eamiddleware/eamiddleware/migrations/__pycache__/0001_initial.cpython-311.pyc
+     27 backend/eamiddleware/eamiddleware/migrations/__pycache__/0002_alter_applicantcounts_table_alter_deptcounts_table_and_more.cpython-311.pyc
+      1 backend/eamiddleware/eamiddleware/migrations/__pycache__/__init__.cpython-311.pyc
+     56 backend/eamiddleware/eamiddleware/models.py
+     25 backend/eamiddleware/eamiddleware/serializers.py
+    146 backend/eamiddleware/eamiddleware/settings.py
+     29 backend/eamiddleware/eamiddleware/urls.py
+     87 backend/eamiddleware/eamiddleware/views.py
+     16 backend/eamiddleware/eamiddleware/wsgi.py
+     22 backend/eamiddleware/manage.py
+     20 backend/eamiddleware/requirements.txt
+      9 backend/kafkaconsumer/Dockerfile
+     39 backend/kafkaconsumer/kafkaconsumer.py
+      2 backend/kafkaconsumer/requirements.txt
+    161 docker-compose.yaml
+wc: new: No such file or directory
+wc: Output/diagram-export-5-2-2025-11_59_09-AM.png: No such file or directory
+wc: new: No such file or directory
+wc: Output/diagram-export-5-2-2025-12_00_11-PM.png: No such file or directory
+wc: new: No such file or directory
+wc: Output/django: No such file or directory
+wc: logs: No such file or directory
+wc: new: No such file or directory
+wc: Output/kafka: No such file or directory
+wc: cons: No such file or directory
+wc: new: No such file or directory
+wc: Output/kafka: No such file or directory
+wc: prod: No such file or directory
+wc: logs: No such file or directory
+wc: new: No such file or directory
+wc: Output/kafkacons2604.txt: No such file or directory
+wc: new: No such file or directory
+wc: Output/mysql: No such file or directory
+wc: logs: No such file or directory
+wc: new: No such file or directory
+wc: Output/mysql2604.txt: No such file or directory
+wc: new: No such file or directory
+wc: Output/post: No such file or directory
+wc: req: No such file or directory
+wc: for: No such file or directory
+wc: debezium.txt: No such file or directory
+wc: new: No such file or directory
+wc: Output/redis: No such file or directory
+wc: logs: No such file or directory
+wc: new: No such file or directory
+wc: Output/redis-26/04.txt: No such file or directory
+wc: new: No such file or directory
+wc: Output/spark: No such file or directory
+wc: logs: No such file or directory
+wc: old: No such file or directory
+wc: files/Output: No such file or directory
+wc: Screenshot/MYSQL: No such file or directory
+wc: SCHEME: No such file or directory
+wc: TABLE.png: No such file or directory
+wc: old: No such file or directory
+wc: files/Output: No such file or directory
+wc: Screenshot/MYSQL: No such file or directory
+wc: TABLE.png: No such file or directory
+wc: old: No such file or directory
+wc: files/Output: No such file or directory
+wc: Screenshot/Recording: No such file or directory
+wc: 2025-03-31: No such file or directory
+wc: 220103.mp4: No such file or directory
+wc: old: No such file or directory
+wc: files/Output: No such file or directory
+wc: Screenshot/Spark: No such file or directory
+wc: op.png: No such file or directory
+wc: old: No such file or directory
+wc: files/Output: No such file or directory
+wc: Screenshot/dbtriggers.txt: No such file or directory
+wc: old: No such file or directory
+wc: files/Output: No such file or directory
+wc: Screenshot/djangoMysql.txt: No such file or directory
+wc: old: No such file or directory
+wc: files/Output: No such file or directory
+wc: Screenshot/materials/MySQL: No such file or directory
+wc: Database: No such file or directory
+wc: '(3).png': No such file or directory
+wc: old: No such file or directory
+wc: files/Output: No such file or directory
+wc: Screenshot/materials/abstract.docx: No such file or directory
+wc: old: No such file or directory
+wc: files/Output: No such file or directory
+wc: Screenshot/materials/ezyaid-removebg-preview.png: No such file or directory
+wc: old: No such file or directory
+wc: files/Output: No such file or directory
+wc: Screenshot/mysql: No such file or directory
+wc: create: No such file or directory
+wc: tables.png: No such file or directory
+wc: old: No such file or directory
+wc: files/Output: No such file or directory
+wc: Screenshot/mysql: No such file or directory
+wc: creds.png: No such file or directory
+wc: old: No such file or directory
+wc: files/Output: No such file or directory
+wc: Screenshot/sPARK: No such file or directory
+wc: OP: No such file or directory
+wc: '(2).png': No such file or directory
+wc: old: No such file or directory
+wc: files/Output: No such file or directory
+wc: Screenshot/someImpCmds.txt: No such file or directory
+wc: old: No such file or directory
+wc: files/Output: No such file or directory
+wc: Screenshot/sparkprocess.txt: No such file or directory
+wc: old: No such file or directory
+wc: files/Output: No such file or directory
+wc: Screenshot/tableCreation.txt: No such file or directory
+wc: old: No such file or directory
+wc: files/docker-compose.yaml: No such file or directory
+      8 redis.conf
+     20 requirements.txt
+    560 spark_processing/allschemes.xlsx
+  11473 spark_processing/mysql-connector-j-8.0.33.jar
+    236 spark_processing/note.txt
+    232 spark_processing/process_data.py
+  13521 total
+
+upend@DS MINGW64 /d/MajorProject/EzyAid (main)
+$ git ls-files | grep -vE '(frontend/|spark_processing/mysql-connector-j-8.0.33.jar|backend/eamiddleware/eamiddleware/__pycache__/|backend/eamiddleware/eamiddleware/migrations/)' | xargs wc -l
+     1 README.md
+    18 backend/eamiddleware/Dockerfile
+    32 backend/eamiddleware/db.sqlite3
+     0 backend/eamiddleware/eamiddleware/__init__.py
+    16 backend/eamiddleware/eamiddleware/asgi.py
+    56 backend/eamiddleware/eamiddleware/models.py
+    25 backend/eamiddleware/eamiddleware/serializers.py
+   146 backend/eamiddleware/eamiddleware/settings.py
+    29 backend/eamiddleware/eamiddleware/urls.py
+    87 backend/eamiddleware/eamiddleware/views.py
+    16 backend/eamiddleware/eamiddleware/wsgi.py
+    22 backend/eamiddleware/manage.py
+    20 backend/eamiddleware/requirements.txt
+     9 backend/kafkaconsumer/Dockerfile
+    39 backend/kafkaconsumer/kafkaconsumer.py
+     2 backend/kafkaconsumer/requirements.txt
+   161 docker-compose.yaml
+wc: new: No such file or directory
+wc: Output/diagram-export-5-2-2025-11_59_09-AM.png: No such file or directory
+wc: new: No such file or directory
+wc: Output/diagram-export-5-2-2025-12_00_11-PM.png: No such file or directory
+wc: new: No such file or directory
+wc: Output/django: No such file or directory
+wc: logs: No such file or directory
+wc: new: No such file or directory
+wc: Output/kafka: No such file or directory
+wc: cons: No such file or directory
+wc: new: No such file or directory
+wc: Output/kafka: No such file or directory
+wc: prod: No such file or directory
+wc: logs: No such file or directory
+wc: new: No such file or directory
+wc: Output/kafkacons2604.txt: No such file or directory
+wc: new: No such file or directory
+wc: Output/mysql: No such file or directory
+wc: logs: No such file or directory
+wc: new: No such file or directory
+wc: Output/mysql2604.txt: No such file or directory
+wc: new: No such file or directory
+wc: Output/post: No such file or directory
+wc: req: No such file or directory
+wc: for: No such file or directory
+wc: debezium.txt: No such file or directory
+wc: new: No such file or directory
+wc: Output/redis: No such file or directory
+wc: logs: No such file or directory
+wc: new: No such file or directory
+wc: Output/redis-26/04.txt: No such file or directory
+wc: new: No such file or directory
+wc: Output/spark: No such file or directory
+wc: logs: No such file or directory
+wc: old: No such file or directory
+wc: files/Output: No such file or directory
+wc: Screenshot/MYSQL: No such file or directory
+wc: SCHEME: No such file or directory
+wc: TABLE.png: No such file or directory
+wc: old: No such file or directory
+wc: files/Output: No such file or directory
+wc: Screenshot/MYSQL: No such file or directory
+wc: TABLE.png: No such file or directory
+wc: old: No such file or directory
+wc: files/Output: No such file or directory
+wc: Screenshot/Recording: No such file or directory
+wc: 2025-03-31: No such file or directory
+wc: 220103.mp4: No such file or directory
+wc: old: No such file or directory
+wc: files/Output: No such file or directory
+wc: Screenshot/Spark: No such file or directory
+wc: op.png: No such file or directory
+wc: old: No such file or directory
+wc: files/Output: No such file or directory
+wc: Screenshot/dbtriggers.txt: No such file or directory
+wc: old: No such file or directory
+wc: files/Output: No such file or directory
+wc: Screenshot/djangoMysql.txt: No such file or directory
+wc: old: No such file or directory
+wc: files/Output: No such file or directory
+wc: Screenshot/materials/MySQL: No such file or directory
+wc: Database: No such file or directory
+wc: '(3).png': No such file or directory
+wc: old: No such file or directory
+wc: files/Output: No such file or directory
+wc: Screenshot/materials/abstract.docx: No such file or directory
+wc: old: No such file or directory
+wc: files/Output: No such file or directory
+wc: Screenshot/materials/ezyaid-removebg-preview.png: No such file or directory
+wc: old: No such file or directory
+wc: files/Output: No such file or directory
+wc: Screenshot/mysql: No such file or directory
+wc: create: No such file or directory
+wc: tables.png: No such file or directory
+wc: old: No such file or directory
+wc: files/Output: No such file or directory
+wc: Screenshot/mysql: No such file or directory
+wc: creds.png: No such file or directory
+wc: old: No such file or directory
+wc: files/Output: No such file or directory
+wc: Screenshot/sPARK: No such file or directory
+wc: OP: No such file or directory
+wc: '(2).png': No such file or directory
+wc: old: No such file or directory
+wc: files/Output: No such file or directory
+wc: Screenshot/someImpCmds.txt: No such file or directory
+wc: old: No such file or directory
+wc: files/Output: No such file or directory
+wc: Screenshot/sparkprocess.txt: No such file or directory
+wc: old: No such file or directory
+wc: files/Output: No such file or directory
+wc: Screenshot/tableCreation.txt: No such file or directory
+wc: old: No such file or directory
+wc: files/docker-compose.yaml: No such file or directory
+     8 redis.conf
+    20 requirements.txt
+   560 spark_processing/allschemes.xlsx
+   236 spark_processing/note.txt
+   232 spark_processing/process_data.py
+  1735 total
+
+upend@DS MINGW64 /d/MajorProject/EzyAid (main)
+$ git ls-files frontend/lib/ | xargs wc -l
+   651 frontend/lib/dashboard.dart
+   132 frontend/lib/developerpage.dart
+    60 frontend/lib/favoritespage.dart
+    38 frontend/lib/favoritesprovider.dart
+    44 frontend/lib/fontprovider.dart
+    11 frontend/lib/langprovider.dart
+   426 frontend/lib/langschemedetailspage.dart
+   100 frontend/lib/langschemespage.dart
+    25 frontend/lib/main.dart
+   368 frontend/lib/meeseva_centers_page.dart
+   112 frontend/lib/notifypage.dart
+   123 frontend/lib/profilepage.dart
+   168 frontend/lib/referencespage.dart
+   217 frontend/lib/registrationpage.dart
+   169 frontend/lib/schemedetailspage.dart
+   374 frontend/lib/schemespage.dart
+    15 frontend/lib/text_to_speech.dart
+   132 frontend/lib/welcomepage.dart
+  3165 total
+
+upend@DS MINGW64 /d/MajorProject/EzyAid (main)
+$

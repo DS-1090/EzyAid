@@ -1,0 +1,139 @@
+
+services: 
+  django_ezyaid:
+    image: django_ezyaid:latest
+    container_name: django_ezyaid
+    command: ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+    networks:
+      - ezynet
+    ports:
+      - "8000:8000"
+    volumes:
+      - "D:/MajorProject/EzyAid/backend/eamiddleware:/app"
+  spark_ezyaid:
+    image: bitnami/spark:latest
+    container_name: spark_ezyaid
+    command: ["/opt/bitnami/spark/bin/spark-class", "org.apache.spark.deploy.master.Master", "--host", "spark_ezyaid"]
+    ports:
+      - "7077:7077"
+      - "8080:8080"
+    environment:
+      - SPARK_CONF_DIR=/opt/bitnami/spark/conf
+      - SPARK_RPC_MESSAGE_MAX_SIZE=512m    
+      - SPARK_NETWORK_TIMEOUT=600s
+    volumes:
+      - "D:/MajorProject/EzyAid:/app"
+    networks:
+      - ezynet
+
+  sparkworker_ezyaid:
+    image: bitnami/spark:latest
+    container_name: sparkworker_ezyaid
+    command: ["/opt/bitnami/spark/bin/spark-class", "org.apache.spark.deploy.worker.Worker", "spark://spark_ezyaid:7077"]
+    depends_on:
+      - spark_ezyaid  
+    environment:
+      - SPARK_WORKER_CORES=2
+      - SPARK_WORKER_MEMORY=2048m  
+    networks:
+      - ezynet
+
+  redis_ezyaid:
+    image: redis:latest
+    container_name: redis_ezyaid
+    ports:
+      - "6379:6379"
+    networks:
+      - ezynet
+
+  kafka_ezyaid:
+    image: bitnami/kafka:latest
+    container_name: kafka_ezyaid
+    environment:
+      - KAFKA_CFG_NODE_ID=0
+      - KAFKA_CFG_PROCESS_ROLES=controller,broker
+      - KAFKA_CFG_CONTROLLER_QUORUM_VOTERS=0@kafka_ezyaid:9093
+      - KAFKA_CFG_LISTENERS=PLAINTEXT://:9092,CONTROLLER://:9093,EXTERNAL://:9094
+      - KAFKA_CFG_ADVERTISED_LISTENERS=PLAINTEXT://kafka_ezyaid:9092,EXTERNAL://localhost:9094
+      - KAFKA_CFG_LISTENER_SECURITY_PROTOCOL_MAP=CONTROLLER:PLAINTEXT,EXTERNAL:PLAINTEXT,PLAINTEXT:PLAINTEXT
+      - KAFKA_CFG_CONTROLLER_LISTENER_NAMES=CONTROLLER
+      - KAFKA_MESSAGE_MAX_BYTES=1195725860
+    ports:
+      - "9094:9094"
+      - "9092:9092"
+    networks:
+      - ezynet
+
+  mysql_ezyaid:
+    image: mysql:latest
+    container_name: mysql_ezyaid
+    environment:
+      MYSQL_ROOT_PASSWORD: pass
+      MYSQL_DATABASE: ezyaid
+    ports:
+      - "3333:3306"
+    networks:
+      - ezynet
+    # command: --binlog-format=ROW --server-id=1
+    command: --server-id=1 --log-bin=mysql-bin --binlog-format=ROW --gtid-mode=ON --enforce-gtid-consistency
+    
+
+
+  debezium_ezyaid:
+    image: debezium/connect:2.7.3.Final
+    container_name: debezium_ezyaid
+    restart: always
+    depends_on:
+      - kafka_ezyaid
+      - mysql_ezyaid
+    environment:
+      BOOTSTRAP_SERVERS: kafka_ezyaid:9092 
+      GROUP_ID: debezium
+      CONFIG_STORAGE_TOPIC: debezium_configs
+      OFFSET_STORAGE_TOPIC: debezium_offsets
+      STATUS_STORAGE_TOPIC: debezium_status
+    ports:
+      - "8083:8083"
+    networks:
+      - ezynet
+
+  kafkacons_ezyaid:
+    image: kafkacons_ezyaid:latest
+    container_name: kafkacons_ezyaid
+    depends_on:
+      - kafka_ezyaid
+      - redis_ezyaid
+    restart: always
+    networks:
+      - ezynet
+
+networks:
+  ezynet:
+    driver: bridge
+
+
+# (venv) PS D:\MajorProject\EzyAid> docker-compose up --build -d
+# [+] Running 10/10
+#  ✔ Network ezyaid_ezynet         Created                                                                                              0.3s 
+#  ✔ Network ezyaid_default        Created                                                                                              0.4s 
+#  ✔ Container redis_ezyaid        Started                                                                                              2.2s 
+#  ✔ Container spark_ezyaid        Started                                                                                              2.1s 
+#  ✔ Container kafka_ezyaid        Started                                                                                              1.7s 
+#  ✔ Container django_ezyaid       Started                                                                                              1.5s 
+#  ✔ Container mysql_ezyaid        Started                                                                                              2.1s 
+#  ✔ Container sparkworker_ezyaid  Started                                                                                              2.9s 
+#  ✔ Container kafkacons_ezyaid    Started                                                                                              2.8s 
+#  ✔ Container debezium_ezyaid     Started    
+
+
+# (venv) PS D:\MajorProject\EzyAid> docker ps
+# CONTAINER ID   IMAGE                          COMMAND                  CREATED         STATUS                         PORTS                                            NAMES
+# 59a0eb8aad7f   debezium/connect:2.7.3.Final   "/docker-entrypoint.…"   2 minutes ago   Up 13 seconds                  8778/tcp, 0.0.0.0:8083->8083/tcp, 9092/tcp       debezium_ezyaid
+# 6bb9ce3e4ad3   kafkacons_ezyaid:latest        "python kafkaconsume…"   2 minutes ago   Up 2 minutes                                                                    kafkacons_ezyaid
+# 71527cf3fa32   bitnami/spark:latest           "/opt/bitnami/script…"   2 minutes ago   Restarting (1) 2 seconds ago                                                    sparkworker_ezyaid
+# cc6103cd1bf6   bitnami/kafka:latest           "/opt/bitnami/script…"   2 minutes ago   Up 2 minutes                   0.0.0.0:9092->9092/tcp, 0.0.0.0:9094->9094/tcp   kafka_ezyaid
+# 3b2f10c376b4   bitnami/spark:latest           "/opt/bitnami/script…"   2 minutes ago   Up 2 minutes                   0.0.0.0:7077->7077/tcp, 0.0.0.0:8080->8080/tcp   spark_ezyaid
+# 164d415ee7a4   mysql:latest                   "docker-entrypoint.s…"   2 minutes ago   Up 2 minutes                   33060/tcp, 0.0.0.0:3333->3306/tcp                mysql_ezyaid
+# ac20f28ba32c   django_ezyaid:latest           "python manage.py ru…"   2 minutes ago   Up 2 minutes                   0.0.0.0:8000->8000/tcp                           django_ezyaid
+# 0e0977b6e2fa   redis:latest                   "docker-entrypoint.s…"   2 minutes ago   Up 2 minutes                   0.0.0.0:6379->6379/tcp                           redis_ezyaid
+# (venv) PS D:\MajorProject\EzyAid> 

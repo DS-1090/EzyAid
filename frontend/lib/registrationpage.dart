@@ -15,20 +15,19 @@ class _RegistrationPageState extends State<RegistrationPage> {
   final TextEditingController _lastNameController = TextEditingController();
   final TextEditingController _ageController = TextEditingController();
 
-  // Key for Form Validation
+  
   final _formKey = GlobalKey<FormState>();
 
-  // Function to handle form submission
   void _register() async {
     if (_formKey.currentState?.validate() ?? false) {
       SharedPreferences prefs = await SharedPreferences.getInstance();
 
-      // Store the user data
+      
       await prefs.setString('firstName', _firstNameController.text);
       await prefs.setString('lastName', _lastNameController.text);
       await prefs.setString('age', _ageController.text);
 
-      // Navigate to Dashboard
+      
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(
@@ -44,7 +43,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
       appBar: AppBar(
         title: const Text(
           "Register",
-          style: TextStyle(color: Colors.white), // Set text color to white
+          style: TextStyle(color: Colors.white), 
         ),
         backgroundColor: Colors.blue,
       ),

@@ -4,11 +4,11 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class FontSizeProvider with ChangeNotifier {
-  double _fontSize = 16.0; // Default font size
+  double _fontSize = 16.0; 
   double get fontSize => _fontSize;
 
   FontSizeProvider() {
-    _loadFontSize(); // Load saved size at startup
+    _loadFontSize();
   }
 
   void _loadFontSize() async {

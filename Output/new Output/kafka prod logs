@@ -1,0 +1,617 @@
+PS D:\MajorProject\EzyAid>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+PS D:\MajorProject\EzyAid>
+
+
+
+
+
+
+
+
+
+
+
+PS D:\MajorProject\EzyAid> docker compose down
+[+] Running 9/9
+[+] Running 9/9
+ ✔ Container django_ezyaid       Removed                   1.7s 
+[+] Running 9/9
+[+] Running 9/9
+ ✔ Container django_ezyaid       Removed                   1.7s 
+ ✔ Container kafkacons_ezyaid    Removed                  10.8s 
+ ✔ Container sparkworker_ezyaid  Removed                   0.2s 
+ ✔ Container debezium_ezyaid     Removed                   2.8s 
+ ✔ Container spark_ezyaid        Removed                   2.2s 
+ ✔ Container mysql_ezyaid        Removed                  11.0s 
+ ✔ Container redis_ezyaid        Removed                   1.5s 
+ ✔ Container kafka_ezyaid        Removed                   4.2s 
+ ✔ Network ezyaid_ezynet         Removed                   0.7s 
+PS D:\MajorProject\EzyAid> docker compose up -d --build         
+[+] Running 9/9
+ ✔ Network ezyaid_ezynet         Created                   0.1s 
+ ✔ Container django_ezyaid       Started                   2.4s 
+ ✔ Container mysql_ezyaid        Started                   2.1s 
+ ✔ Container spark_ezyaid        Started                   2.3s 
+ ✔ Container redis_ezyaid        Started                   1.9s 
+ ✔ Container kafka_ezyaid        Started                   2.2s 
+ ✔ Container kafkacons_ezyaid    Started                   2.1s 
+ ✔ Container sparkworker_ezyaid  Started                   2.4s 
+ ✔ Container debezium_ezyaid     Started                   2.3s 
+PS D:\MajorProject\EzyAid> docker exec kafka_ezyaid -it bash
+OCI runtime exec failed: exec failed: unable to start container process: exec: "-it": executable file not found in $PATH: unknown
+PS D:\MajorProject\EzyAid> docker exec -it kafka_ezyaid bash
+I have no name!@7974f2984632:/$ kafka-topics.sh --bootstrap-server kafka:9092 --create \
+  --topic schema-changes.ezyaid --replication-factor 1 --partitions 1
+
+[2025-04-11 14:51:01,717] WARN Couldn't resolve server kafka:9092 from bootstrap.servers as DNS resolution failed for kafka (org.apache.kafka.clients.ClientUtils)
+Failed to create new KafkaAdminClient
+org.apache.kafka.common.KafkaException: Failed to create new KafkaAdminClient
+        at org.apache.kafka.clients.admin.KafkaAdminClient.createInternal(KafkaAdminClient.java:561)
+        at org.apache.kafka.clients.admin.KafkaAdminClient.createInternal(KafkaAdminClient.java:512)
+        at org.apache.kafka.clients.admin.Admin.create(Admin.java:137)
+        at org.apache.kafka.tools.TopicCommand$TopicService.createAdminClient(TopicCommand.java:456)
+        at org.apache.kafka.tools.TopicCommand$TopicService.<init>(TopicCommand.java:445)
+        at org.apache.kafka.tools.TopicCommand.execute(TopicCommand.java:101)
+        at org.apache.kafka.tools.TopicCommand.mainNoExit(TopicCommand.java:90)
+        at org.apache.kafka.tools.TopicCommand.main(TopicCommand.java:85)
+Caused by: org.apache.kafka.common.config.ConfigException: No resolvable bootstrap urls given in bootstrap.servers
+        at org.apache.kafka.clients.ClientUtils.parseAndValidateAddresses(ClientUtils.java:104)
+        at org.apache.kafka.clients.ClientUtils.parseAndValidateAddresses(ClientUtils.java:63)
+        at org.apache.kafka.clients.admin.internals.AdminBootstrapAddresses.fromConfig(AdminBootstrapAddresses.java:72)
+        at org.apache.kafka.clients.admin.KafkaAdminClient.createInternal(KafkaAdminClient.java:530)
+        ... 7 more
+
+I have no name!@7974f2984632:/$ 
+I have no name!@7974f2984632:/$ kafka-topics.sh --bootstrap-server kafka:9092 --create   --topic schema-changes.ezyaid --replication-factor 1 --partitions 1
+[2025-04-11 14:51:19,324] WARN Couldn't resolve server kafka:9092 from bootstrap.servers as DNS resolution failed for kafka (org.apache.kafka.clients.ClientUtils)
+Failed to create new KafkaAdminClient
+org.apache.kafka.common.KafkaException: Failed to create new KafkaAdminClient
+        at org.apache.kafka.clients.admin.KafkaAdminClient.createInternal(KafkaAdminClient.java:561)
+        at org.apache.kafka.clients.admin.KafkaAdminClient.createInternal(KafkaAdminClient.java:512)
+        at org.apache.kafka.clients.admin.Admin.create(Admin.java:137)
+        at org.apache.kafka.tools.TopicCommand$TopicService.createAdminClient(TopicCommand.java:456)
+        at org.apache.kafka.tools.TopicCommand$TopicService.<init>(TopicCommand.java:445)
+        at org.apache.kafka.tools.TopicCommand.execute(TopicCommand.java:101)
+        at org.apache.kafka.tools.TopicCommand.mainNoExit(TopicCommand.java:90)
+        at org.apache.kafka.tools.TopicCommand.main(TopicCommand.java:85)
+Caused by: org.apache.kafka.common.config.ConfigException: No resolvable bootstrap urls given in bootstrap.servers
+        at org.apache.kafka.clients.ClientUtils.parseAndValidateAddresses(ClientUtils.java:104)
+        at org.apache.kafka.clients.ClientUtils.parseAndValidateAddresses(ClientUtils.java:63)
+        at org.apache.kafka.clients.admin.internals.AdminBootstrapAddresses.fromConfig(AdminBootstrapAddresses.java:72)
+        at org.apache.kafka.clients.admin.KafkaAdminClient.createInternal(KafkaAdminClient.java:530)
+        ... 7 more
+
+I have no name!@7974f2984632:/$ kafka-topics.sh --bootstrap-server kafka_ezyaid:9092 \
+  --create --topic schema-changes.ezyaid \
+  --replication-factor 1 --partitions 1
+issues it is best to use either, but not both.
+issues it is best to use either, but not both.
+issues it is best to use either, but not both.
+issues it is best to use either, but not both.
+Created topic schema-changes.ezyaid.
+I have no name!@7974f2984632:/$ kafka-topics.sh --bootstrap-server kafka_ezyaid:9092 --list
+__consumer_offsets
+debezium_configs
+debezium_offsets
+debezium_status
+ezyaid
+ezyaidserver.ezyaid.schemeDirectory
+schema-changes.ezyaid
+I have no name!@7974f2984632:/$
+
+
+
+
+
+
+
+
+
+
+
+
+issues it is best to use either, but not both.
+Created topic schema-changes.ezyaid.
+I have no name!@7974f2984632:/$ kafka-topics.sh --bootstrap-server kafka_ezyaid:9092 --list
+__consumer_offsets
+debezium_configs
+debezium_offsets
+debezium_status
+ezyaid
+ezyaidserver.ezyaid.schemeDirectory
+schema-changes.ezyaid
+I have no name!@7974f2984632:/$
+
+issues it is best to use either, but not both.
+Created topic schema-changes.ezyaid.
+I have no name!@7974f2984632:/$ kafka-topics.sh --bootstrap-server kafka_ezyaid:9092 --list
+__consumer_offsets
+issues it is best to use either, but not both.
+issues it is best to use either, but not both.
+issues it is best to use either, but not both.
+Created topic schema-changes.ezyaid.
+issues it is best to use either, but not both.
+Created topic schema-changes.ezyaid.
+I have no name!@7974f2984632:/$ kafka-topics.sh --bootstrap-server kafka_ezyaid:9092 --list
+__consumer_offsets
+debezium_configs
+debezium_offsets
+debezium_status
+ezyaid
+ezyaidserver.ezyaid.schemeDirectory
+schema-changes.ezyaid
+I have no name!@7974f2984632:/$ kafka-console-consumer.sh \
+  --bootstrap-server kafka_ezyaid:9092 \
+  --topic ezyaid.ezyaid.schemeDirectory \
+  --from-beginning
+^CProcessed a total of 0 messages
+bash: --from-beginning: command not found
+I have no name!@7974f2984632:/$ kafka-topics.sh --bootstrap-server kafka_ezyaid:9092 --list
+__consumer_offsets
+debezium_configs
+debezium_offsets
+debezium_status
+ezyaid
+ezyaid.ezyaid.applicantCounts
+ezyaid.ezyaid.deptCounts
+ezyaid.ezyaid.schemeDirectory
+ezyaid.ezyaid.yearCounts
+ezyaidserver.ezyaid.schemeDirectory
+schema-changes.ezyaid
+I have no name!@7974f2984632:/$ kafka-console-consumer.sh \
+  --bootstrap-server kafka_ezyaid:9092 \
+  --topic ezyaidserver.ezyaid.schemeDirectory \
+  --from-beginning
+^CProcessed a total of 0 messages
+
+I have no name!@7974f2984632:/$ 
+I have no name!@7974f2984632:/$ kafka-console-consumer.sh   --bootstrap-server kafka_ezyaid:9092   --topic ezyaid.ezyaid.schemeDirectory   --from-begi
+nning
+^C
+Processed a total of 0 messages
+I have no name!@7974f2984632:/$ 
+I have no name!@7974f2984632:/$ kafka-console-consumer.sh   --bootstrap-server kafka_ezyaid:9092   --topic ezyaid   --from-beginning
+{"schema":{"type":"struct","fields":[{"type":"struct","fields":[{"type":"string","optional":false,"field":"version"},{"type":"string","optional":false,"field":"connector"},{"type":"string","optional":false,"field":"name"},{"type":"int64","optional":false,"field":"ts_ms"},{"type":"string","optional":true,"name":"io.debezium.data.Enum","version":1,"parameters":{"allowed":"true,last,false,incremental"},"default":"false","field":"snapshot"},{"type":"string","optional":false,"field":"db"},{"type":"string","optional":true,"field":"sequence"},{"type":"int64","optional":true,"field":"ts_us"},{"type":"int64","optional":true,"field":"ts_ns"},{"type":"string","optional":true,"field":"table"},{"type":"int64","optional":false,"field":"server_id"},{"type":"string","optional":true,"field":"gtid"},{"type":"string","optional":false,"field":"file"},{"type":"int64","optional":false,"field":"pos"},{"type":"int32","optional":false,"field":"row"},{"type":"int64","optional":true,"field":"thread"},{"type":"string","optional":true,"field":"query"}],"optional":false,"name":"io.debezium.connector.mysql.Source","field":"source"},{"type":"int64","optional":false,"field":"ts_ms"},{"type":"string","optional":true,"field":"databaseName"},{"type":"string","optional":true,"field":"schemaName"},{"type":"string","optional":true,"field":"ddl"},{"type":"array","items":{"type":"struct","fields":[{"type":"string","optional":false,"field":"type"},{"type":"string","optional":false,"field":"id"},{"type":"struct","fields":[{"type":"string","optional":true,"field":"defaultCharsetName"},{"type":"array","items":{"type":"string","optional":false},"optional":true,"field":"primaryKeyColumnNames"},{"type":"array","items":{"type":"struct","fields":[{"type":"string","optional":false,"field":"name"},{"type":"int32","optional":false,"field":"jdbcType"},{"type":"int32","optional":true,"field":"nativeType"},{"type":"string","optional":false,"field":"typeName"},{"type":"string","optional":true,"field":"typeExpression"},{"type":"string","optional":true,"field":"charsetName"},{"type":"int32","optional":true,"field":"length"},{"type":"int32","optional":true,"field":"scale"},{"type":"int32","optional":false,"field":"position"},{"type":"boolean","optional":true,"field":"optional"},{"type":"boolean","optional":true,"field":"autoIncremented"},{"type":"boolean","optional":true,"field":"generated"},{"type":"string","optional":true,"field":"comment"},{"type":"string","optional":true,"field":"defaultValueExpression"},{"type":"array","items":{"type":"string","optional":false},"optional":true,"field":"enumValues"}],"optional":false,"name":"io.debezium.connector.schema.Column","version":1},"optional":false,"field":"columns"},{"type":"string","optional":true,"field":"comment"}],"optional":true,"name":"io.debezium.connector.schema.Table","version":1,"field":"table"}],"optional":false,"name":"io.debezium.connector.schema.Change","version":1},"optional":false,"field":"tableChanges"}],"optional":false,"name":"io.debezium.connector.mysql.SchemaChangeValue","version":1},"payload":{"source":{"version":"2.7.3.Final","connector":"mysql","name":"ezyaid","ts_ms":1744383612400,"snapshot":"last","db":"","sequence":null,"ts_us":1744383612400388,"ts_ns":1744383612400388128,"table":null,"server_id":0,"gtid":null,"file":"mysql-bin.000004","pos":197,"row":0,"thread":null,"query":null},"ts_ms":1744383614459,"databaseName":"","schemaName":null,"ddl":"SET character_set_server=utf8mb4, collation_server=utf8mb4_0900_ai_ci","tableChanges":[]}}
+{"schema":{"type":"struct","fields":[{"type":"struct","fields":[{"type":"string","optional":false,"field":"version"},{"type":"string","optional":false,"field":"connector"},{"type":"string","optional":false,"field":"name"},{"type":"int64","optional":false,"field":"ts_ms"},{"type":"string","optional":true,"name":"io.debezium.data.Enum","version":1,"parameters":{"allowed":"true,last,false,incremental"},"default":"false","field":"snapshot"},{"type":"string","optional":false,"field":"db"},{"type":"string","optional":true,"field":"sequence"},{"type":"int64","optional":true,"field":"ts_us"},{"type":"int64","optional":true,"field":"ts_ns"},{"type":"string","optional":true,"field":"table"},{"type":"int64","optional":false,"field":"server_id"},{"type":"string","optional":true,"field":"gtid"},{"type":"string","optional":false,"field":"file"},{"type":"int64","optional":false,"field":"pos"},{"type":"int32","optional":false,"field":"row"},{"type":"int64","optional":true,"field":"thread"},{"type":"string","optional":true,"field":"query"}],"optional":false,"name":"io.debezium.connector.mysql.Source","field":"source"},{"type":"int64","optional":false,"field":"ts_ms"},{"type":"string","optional":true,"field":"databaseName"},{"type":"string","optional":true,"field":"schemaName"},{"type":"string","optional":true,"field":"ddl"},{"type":"array","items":{"type":"struct","fields":[{"type":"string","optional":false,"field":"type"},{"type":"string","optional":false,"field":"id"},{"type":"struct","fields":[{"type":"string","optional":true,"field":"defaultCharsetName"},{"type":"array","items":{"type":"string","optional":false},"optional":true,"field":"primaryKeyColumnNames"},{"type":"array","items":{"type":"struct","fields":[{"type":"string","optional":false,"field":"name"},{"type":"int32","optional":false,"field":"jdbcType"},{"type":"int32","optional":true,"field":"nativeType"},{"type":"string","optional":false,"field":"typeName"},{"type":"string","optional":true,"field":"typeExpression"},{"type":"string","optional":true,"field":"charsetName"},{"type":"int32","optional":true,"field":"length"},{"type":"int32","optional":true,"field":"scale"},{"type":"int32","optional":false,"field":"position"},{"type":"boolean","optional":true,"field":"optional"},{"type":"boolean","optional":true,"field":"autoIncremented"},{"type":"boolean","optional":true,"field":"generated"},{"type":"string","optional":true,"field":"comment"},{"type":"string","optional":true,"field":"defaultValueExpression"},{"type":"array","items":{"type":"string","optional":false},"optional":true,"field":"enumValues"}],"optional":false,"name":"io.debezium.connector.schema.Column","version":1},"optional":false,"field":"columns"},{"type":"string","optional":true,"field":"comment"}],"optional":true,"name":"io.debezium.connector.schema.Table","version":1,"field":"table"}],"optional":false,"name":"io.debezium.connector.schema.Change","version":1},"optional":false,"field":"tableChanges"}],"optional":false,"name":"io.debezium.connector.mysql.SchemaChangeValue","version":1},"payload":{"source":{"version":"2.7.3.Final","connector":"mysql","name":"ezyaid","ts_ms":1744384417071,"snapshot":"false","db":"ezyaid","sequence":null,"ts_us":1744384417071000,"ts_ns":1744384417071000000,"table":"schemeDirectory","server_id":1,"gtid":"1cbf30ef-16db-11f0-a5f7-4e0b07ebaacc:6","file":"mysql-bin.000004","pos":276,"row":0,"thread":null,"query":null},"ts_ms":1744384417338,"databaseName":"ezyaid","schemaName":null,"ddl":"CREATE TABLE schemeDirectory (`id` INTEGER NOT NULL, `scheme_name` LONGTEXT , `open_date` LONGTEXT , `state` LONGTEXT , `implementing_agency` LONGTEXT , `category` LONGTEXT , `subcategory` LONGTEXT , `tags` LONGTEXT , `brief_description` LONGTEXT , `detailed_description` LONGTEXT , `benefits` LONGTEXT , `exclusions` LONGTEXT , `eligibility_criteria` LONGTEXT , `application_process` LONGTEXT , `documents_required` LONGTEXT )","tableChanges":[{"type":"CREATE","id":"\"ezyaid\".\"schemeDirectory\"","table":{"defaultCharsetName":"utf8mb4","primaryKeyColumnNames":[],"columns":[{"name":"id","jdbcType":4,"nativeType":null,"typeName":"INTEGER","typeExpression":"INTEGER","charsetName":null,"length":null,"scale":null,"position":1,"optional":false,"autoIncremented":false,"generated":false,"comment":null,"defaultValueExpression":null,"enumValues":null},{"name":"scheme_name","jdbcType":12,"nativeType":null,"typeName":"LONGTEXT","typeExpression":"LONGTEXT","charsetName":"utf8mb4","length":null,"scale":null,"position":2,"optional":true,"autoIncremented":false,"generated":false,"comment":null,"defaultValueExpression":null,"enumValues":null},{"name":"open_date","jdbcType":12,"nativeType":null,"typeName":"LONGTEXT","typeExpression":"LONGTEXT","charsetName":"utf8mb4","length":null,"scale":null,"position":3,"optional":true,"autoIncremented":false,"generated":false,"comment":null,"defaultValueExpression":null,"enumValues":null},{"name":"state","jdbcType":12,"nativeType":null,"typeName":"LONGTEXT","typeExpression":"LONGTEXT","charsetName":"utf8mb4","length":null,"scale":null,"position":4,"optional":true,"autoIncremented":false,"generated":false,"comment":null,"defaultValueExpression":null,"enumValues":null},{"name":"implementing_agency","jdbcType":12,"nativeType":null,"typeName":"LONGTEXT","typeExpression":"LONGTEXT","charsetName":"utf8mb4","length":null,"scale":null,"position":5,"optional":true,"autoIncremented":false,"generated":false,"comment":null,"defaultValueExpression":null,"enumValues":null},{"name":"category","jdbcType":12,"nativeType":null,"typeName":"LONGTEXT","typeExpression":"LONGTEXT","charsetName":"utf8mb4","length":null,"scale":null,"position":6,"optional":true,"autoIncremented":false,"generated":false,"comment":null,"defaultValueExpression":null,"enumValues":null},{"name":"subcategory","jdbcType":12,"nativeType":null,"typeName":"LONGTEXT","typeExpression":"LONGTEXT","charsetName":"utf8mb4","length":null,"scale":null,"position":7,"optional":true,"autoIncremented":false,"generated":false,"comment":null,"defaultValueExpression":null,"enumValues":null},{"name":"tags","jdbcType":12,"nativeType":null,"typeName":"LONGTEXT","typeExpression":"LONGTEXT","charsetName":"utf8mb4","length":null,"scale":null,"position":8,"optional":true,"autoIncremented":false,"generated":false,"comment":null,"defaultValueExpression":null,"enumValues":null},{"name":"brief_description","jdbcType":12,"nativeType":null,"typeName":"LONGTEXT","typeExpression":"LONGTEXT","charsetName":"utf8mb4","length":null,"scale":null,"position":9,"optional":true,"autoIncremented":false,"generated":false,"comment":null,"defaultValueExpression":null,"enumValues":null},{"name":"detailed_description","jdbcType":12,"nativeType":null,"typeName":"LONGTEXT","typeExpression":"LONGTEXT","charsetName":"utf8mb4","length":null,"scale":null,"position":10,"optional":true,"autoIncremented":false,"generated":false,"comment":null,"defaultValueExpression":null,"enumValues":null},{"name":"benefits","jdbcType":12,"nativeType":null,"typeName":"LONGTEXT","typeExpression":"LONGTEXT","charsetName":"utf8mb4","length":null,"scale":null,"position":11,"optional":true,"autoIncremented":false,"generated":false,"comment":null,"defaultValueExpression":null,"enumValues":null},{"name":"exclusions","jdbcType":12,"nativeType":null,"typeName":"LONGTEXT","typeExpression":"LONGTEXT","charsetName":"utf8mb4","length":null,"scale":null,"position":12,"optional":true,"autoIncremented":false,"generated":false,"comment":null,"defaultValueExpression":null,"enumValues":null},{"name":"eligibility_criteria","jdbcType":12,"nativeType":null,"typeName":"LONGTEXT","typeExpression":"LONGTEXT","charsetName":"utf8mb4","length":null,"scale":null,"position":13,"optional":true,"autoIncremented":false,"generated":false,"comment":null,"defaultValueExpression":null,"enumValues":null},{"name":"application_process","jdbcType":12,"nativeType":null,"typeName":"LONGTEXT","typeExpression":"LONGTEXT","charsetName":"utf8mb4","length":null,"scale":null,"position":14,"optional":true,"autoIncremented":false,"generated":false,"comment":null,"defaultValueExpression":null,"enumValues":null},{"name":"documents_required","jdbcType":12,"nativeType":null,"typeName":"LONGTEXT","typeExpression":"LONGTEXT","charsetName":"utf8mb4","length":null,"scale":null,"position":15,"optional":true,"autoIncremented":false,"generated":false,"comment":null,"defaultValueExpression":null,"enumValues":null}],"comment":null}}]}}
+{"schema":{"type":"struct","fields":[{"type":"struct","fields":[{"type":"string","optional":false,"field":"version"},{"type":"string","optional":false,"field":"connector"},{"type":"string","optional":false,"field":"name"},{"type":"int64","optional":false,"field":"ts_ms"},{"type":"string","optional":true,"name":"io.debezium.data.Enum","version":1,"parameters":{"allowed":"true,last,false,incremental"},"default":"false","field":"snapshot"},{"type":"string","optional":false,"field":"db"},{"type":"string","optional":true,"field":"sequence"},{"type":"int64","optional":true,"field":"ts_us"},{"type":"int64","optional":true,"field":"ts_ns"},{"type":"string","optional":true,"field":"table"},{"type":"int64","optional":false,"field":"server_id"},{"type":"string","optional":true,"field":"gtid"},{"type":"string","optional":false,"field":"file"},{"type":"int64","optional":false,"field":"pos"},{"type":"int32","optional":false,"field":"row"},{"type":"int64","optional":true,"field":"thread"},{"type":"string","optional":true,"field":"query"}],"optional":false,"name":"io.debezium.connector.mysql.Source","field":"source"},{"type":"int64","optional":false,"field":"ts_ms"},{"type":"string","optional":true,"field":"databaseName"},{"type":"string","optional":true,"field":"schemaName"},{"type":"string","optional":true,"field":"ddl"},{"type":"array","items":{"type":"struct","fields":[{"type":"string","optional":false,"field":"type"},{"type":"string","optional":false,"field":"id"},{"type":"struct","fields":[{"type":"string","optional":true,"field":"defaultCharsetName"},{"type":"array","items":{"type":"string","optional":false},"optional":true,"field":"primaryKeyColumnNames"},{"type":"array","items":{"type":"struct","fields":[{"type":"string","optional":false,"field":"name"},{"type":"int32","optional":false,"field":"jdbcType"},{"type":"int32","optional":true,"field":"nativeType"},{"type":"string","optional":false,"field":"typeName"},{"type":"string","optional":true,"field":"typeExpression"},{"type":"string","optional":true,"field":"charsetName"},{"type":"int32","optional":true,"field":"length"},{"type":"int32","optional":true,"field":"scale"},{"type":"int32","optional":false,"field":"position"},{"type":"boolean","optional":true,"field":"optional"},{"type":"boolean","optional":true,"field":"autoIncremented"},{"type":"boolean","optional":true,"field":"generated"},{"type":"string","optional":true,"field":"comment"},{"type":"string","optional":true,"field":"defaultValueExpression"},{"type":"array","items":{"type":"string","optional":false},"optional":true,"field":"enumValues"}],"optional":false,"name":"io.debezium.connector.schema.Column","version":1},"optional":false,"field":"columns"},{"type":"string","optional":true,"field":"comment"}],"optional":true,"name":"io.debezium.connector.schema.Table","version":1,"field":"table"}],"optional":false,"name":"io.debezium.connector.schema.Change","version":1},"optional":false,"field":"tableChanges"}],"optional":false,"name":"io.debezium.connector.mysql.SchemaChangeValue","version":1},"payload":{"source":{"version":"2.7.3.Final","connector":"mysql","name":"ezyaid","ts_ms":1744384422049,"snapshot":"false","db":"ezyaid","sequence":null,"ts_us":1744384422049000,"ts_ns":1744384422049000000,"table":"yearCounts","server_id":1,"gtid":"1cbf30ef-16db-11f0-a5f7-4e0b07ebaacc:19","file":"mysql-bin.000004","pos":460329,"row":0,"thread":null,"query":null},"ts_ms":1744384422077,"databaseName":"ezyaid","schemaName":null,"ddl":"CREATE TABLE yearCounts (`Year` LONGTEXT , `count` INTEGER )","tableChanges":[{"type":"CREATE","id":"\"ezyaid\".\"yearCounts\"","table":{"defaultCharsetName":"utf8mb4","primaryKeyColumnNames":[],"columns":[{"name":"Year","jdbcType":12,"nativeType":null,"typeName":"LONGTEXT","typeExpression":"LONGTEXT","charsetName":"utf8mb4","length":null,"scale":null,"position":1,"optional":true,"autoIncremented":false,"generated":false,"comment":null,"defaultValueExpression":null,"enumValues":null},{"name":"count","jdbcType":4,"nativeType":null,"typeName":"INTEGER","typeExpression":"INTEGER","charsetName":null,"length":null,"scale":null,"position":2,"optional":true,"autoIncremented":false,"generated":false,"comment":null,"defaultValueExpression":null,"enumValues":null}],"comment":null}}]}}       
+{"schema":{"type":"struct","fields":[{"type":"struct","fields":[{"type":"string","optional":false,"field":"version"},{"type":"string","optional":false,"field":"connector"},{"type":"string","optional":false,"field":"name"},{"type":"int64","optional":false,"field":"ts_ms"},{"type":"string","optional":true,"name":"io.debezium.data.Enum","version":1,"parameters":{"allowed":"true,last,false,incremental"},"default":"false","field":"snapshot"},{"type":"string","optional":false,"field":"db"},{"type":"string","optional":true,"field":"sequence"},{"type":"int64","optional":true,"field":"ts_us"},{"type":"int64","optional":true,"field":"ts_ns"},{"type":"string","optional":true,"field":"table"},{"type":"int64","optional":false,"field":"server_id"},{"type":"string","optional":true,"field":"gtid"},{"type":"string","optional":false,"field":"file"},{"type":"int64","optional":false,"field":"pos"},{"type":"int32","optional":false,"field":"row"},{"type":"int64","optional":true,"field":"thread"},{"type":"string","optional":true,"field":"query"}],"optional":false,"name":"io.debezium.connector.mysql.Source","field":"source"},{"type":"int64","optional":false,"field":"ts_ms"},{"type":"string","optional":true,"field":"databaseName"},{"type":"string","optional":true,"field":"schemaName"},{"type":"string","optional":true,"field":"ddl"},{"type":"array","items":{"type":"struct","fields":[{"type":"string","optional":false,"field":"type"},{"type":"string","optional":false,"field":"id"},{"type":"struct","fields":[{"type":"string","optional":true,"field":"defaultCharsetName"},{"type":"array","items":{"type":"string","optional":false},"optional":true,"field":"primaryKeyColumnNames"},{"type":"array","items":{"type":"struct","fields":[{"type":"string","optional":false,"field":"name"},{"type":"int32","optional":false,"field":"jdbcType"},{"type":"int32","optional":true,"field":"nativeType"},{"type":"string","optional":false,"field":"typeName"},{"type":"string","optional":true,"field":"typeExpression"},{"type":"string","optional":true,"field":"charsetName"},{"type":"int32","optional":true,"field":"length"},{"type":"int32","optional":true,"field":"scale"},{"type":"int32","optional":false,"field":"position"},{"type":"boolean","optional":true,"field":"optional"},{"type":"boolean","optional":true,"field":"autoIncremented"},{"type":"boolean","optional":true,"field":"generated"},{"type":"string","optional":true,"field":"comment"},{"type":"string","optional":true,"field":"defaultValueExpression"},{"type":"array","items":{"type":"string","optional":false},"optional":true,"field":"enumValues"}],"optional":false,"name":"io.debezium.connector.schema.Column","version":1},"optional":false,"field":"columns"},{"type":"string","optional":true,"field":"comment"}],"optional":true,"name":"io.debezium.connector.schema.Table","version":1,"field":"table"}],"optional":false,"name":"io.debezium.connector.schema.Change","version":1},"optional":false,"field":"tableChanges"}],"optional":false,"name":"io.debezium.connector.mysql.SchemaChangeValue","version":1},"payload":{"source":{"version":"2.7.3.Final","connector":"mysql","name":"ezyaid","ts_ms":1744384423164,"snapshot":"false","db":"ezyaid","sequence":null,"ts_us":1744384423164000,"ts_ns":1744384423164000000,"table":"deptCounts","server_id":1,"gtid":"1cbf30ef-16db-11f0-a5f7-4e0b07ebaacc:32","file":"mysql-bin.000004","pos":464715,"row":0,"thread":null,"query":null},"ts_ms":1744384423177,"databaseName":"ezyaid","schemaName":null,"ddl":"CREATE TABLE deptCounts (`Department` LONGTEXT , `count` INTEGER )","tableChanges":[{"type":"CREATE","id":"\"ezyaid\".\"deptCounts\"","table":{"defaultCharsetName":"utf8mb4","primaryKeyColumnNames":[],"columns":[{"name":"Department","jdbcType":12,"nativeType":null,"typeName":"LONGTEXT","typeExpression":"LONGTEXT","charsetName":"utf8mb4","length":null,"scale":null,"position":1,"optional":true,"autoIncremented":false,"generated":false,"comment":null,"defaultValueExpression":null,"enumValues":null},{"name":"count","jdbcType":4,"nativeType":null,"typeName":"INTEGER","typeExpression":"INTEGER","charsetName":null,"length":null,"scale":null,"position":2,"optional":true,"autoIncremented":false,"generated":false,"comment":null,"defaultValueExpression":null,"enumValues":null}],"comment":null}}]}}
+{"schema":{"type":"struct","fields":[{"type":"struct","fields":[{"type":"string","optional":false,"field":"version"},{"type":"string","optional":false,"field":"connector"},{"type":"string","optional":false,"field":"name"},{"type":"int64","optional":false,"field":"ts_ms"},{"type":"string","optional":true,"name":"io.debezium.data.Enum","version":1,"parameters":{"allowed":"true,last,false,incremental"},"default":"false","field":"snapshot"},{"type":"string","optional":false,"field":"db"},{"type":"string","optional":true,"field":"sequence"},{"type":"int64","optional":true,"field":"ts_us"},{"type":"int64","optional":true,"field":"ts_ns"},{"type":"string","optional":true,"field":"table"},{"type":"int64","optional":false,"field":"server_id"},{"type":"string","optional":true,"field":"gtid"},{"type":"string","optional":false,"field":"file"},{"type":"int64","optional":false,"field":"pos"},{"type":"int32","optional":false,"field":"row"},{"type":"int64","optional":true,"field":"thread"},{"type":"string","optional":true,"field":"query"}],"optional":false,"name":"io.debezium.connector.mysql.Source","field":"source"},{"type":"int64","optional":false,"field":"ts_ms"},{"type":"string","optional":true,"field":"databaseName"},{"type":"string","optional":true,"field":"schemaName"},{"type":"string","optional":true,"field":"ddl"},{"type":"array","items":{"type":"struct","fields":[{"type":"string","optional":false,"field":"type"},{"type":"string","optional":false,"field":"id"},{"type":"struct","fields":[{"type":"string","optional":true,"field":"defaultCharsetName"},{"type":"array","items":{"type":"string","optional":false},"optional":true,"field":"primaryKeyColumnNames"},{"type":"array","items":{"type":"struct","fields":[{"type":"string","optional":false,"field":"name"},{"type":"int32","optional":false,"field":"jdbcType"},{"type":"int32","optional":true,"field":"nativeType"},{"type":"string","optional":false,"field":"typeName"},{"type":"string","optional":true,"field":"typeExpression"},{"type":"string","optional":true,"field":"charsetName"},{"type":"int32","optional":true,"field":"length"},{"type":"int32","optional":true,"field":"scale"},{"type":"int32","optional":false,"field":"position"},{"type":"boolean","optional":true,"field":"optional"},{"type":"boolean","optional":true,"field":"autoIncremented"},{"type":"boolean","optional":true,"field":"generated"},{"type":"string","optional":true,"field":"comment"},{"type":"string","optional":true,"field":"defaultValueExpression"},{"type":"array","items":{"type":"string","optional":false},"optional":true,"field":"enumValues"}],"optional":false,"name":"io.debezium.connector.schema.Column","version":1},"optional":false,"field":"columns"},{"type":"string","optional":true,"field":"comment"}],"optional":true,"name":"io.debezium.connector.schema.Table","version":1,"field":"table"}],"optional":false,"name":"io.debezium.connector.schema.Change","version":1},"optional":false,"field":"tableChanges"}],"optional":false,"name":"io.debezium.connector.mysql.SchemaChangeValue","version":1},"payload":{"source":{"version":"2.7.3.Final","connector":"mysql","name":"ezyaid","ts_ms":1744384424282,"snapshot":"false","db":"ezyaid","sequence":null,"ts_us":1744384424282000,"ts_ns":1744384424282000000,"table":"applicantCounts","server_id":1,"gtid":"1cbf30ef-16db-11f0-a5f7-4e0b07ebaacc:45","file":"mysql-bin.000004","pos":471979,"row":0,"thread":null,"query":null},"ts_ms":1744384424295,"databaseName":"ezyaid","schemaName":null,"ddl":"CREATE TABLE applicantCounts (`Category` LONGTEXT , `Count` INTEGER )","tableChanges":[{"type":"CREATE","id":"\"ezyaid\".\"applicantCounts\"","table":{"defaultCharsetName":"utf8mb4","primaryKeyColumnNames":[],"columns":[{"name":"Category","jdbcType":12,"nativeType":null,"typeName":"LONGTEXT","typeExpression":"LONGTEXT","charsetName":"utf8mb4","length":null,"scale":null,"position":1,"optional":true,"autoIncremented":false,"generated":false,"comment":null,"defaultValueExpression":null,"enumValues":null},{"name":"Count","jdbcType":4,"nativeType":null,"typeName":"INTEGER","typeExpression":"INTEGER","charsetName":null,"length":null,"scale":null,"position":2,"optional":true,"autoIncremented":false,"generated":false,"comment":null,"defaultValueExpression":null,"enumValues":null}],"comment":null}}]}}
+^CProcessed a total of 5 messages
+I have no name!@7974f2984632:/$ kafka-console-consumer.sh   --bootstrap-server kafka_ezyaid:9092   --topic schema-changes.ezyaid  --from-beginning    
+{
+  "source" : {
+    "server" : "ezyaid"
+  },
+  "position" : {
+    "ts_sec" : 1744383612,
+    "file" : "mysql-bin.000004",
+    "pos" : 197,
+    "gtids" : "1cbf30ef-16db-11f0-a5f7-4e0b07ebaacc:1-5",
+    "snapshot" : true
+  },
+  "ts_ms" : 1744383614459,
+  "databaseName" : "",
+  "ddl" : "SET character_set_server=utf8mb4, collation_server=utf8mb4_0900_ai_ci",
+  "tableChanges" : [ ]
+}
+{
+  "source" : {
+    "server" : "ezyaid"
+  },
+  "position" : {
+    "ts_sec" : 1744384417,
+    "file" : "mysql-bin.000004",
+    "pos" : 795,
+    "gtids" : "1cbf30ef-16db-11f0-a5f7-4e0b07ebaacc:1-5",
+    "server_id" : 1
+  },
+  "ts_ms" : 1744384417338,
+  "databaseName" : "ezyaid",
+  "ddl" : "CREATE TABLE schemeDirectory (`id` INTEGER NOT NULL, `scheme_name` LONGTEXT , `open_date` LONGTEXT , `state` LONGTEXT , `implementing_agency` LONGTEXT , `category` LONGTEXT , `subcategory` LONGTEXT , `tags` LONGTEXT , `brief_description` LONGTEXT , `detailed_description` LONGTEXT , `benefits` LONGTEXT , `exclusions` LONGTEXT , `eligibility_criteria` LONGTEXT , `application_process` LONGTEXT , `documents_required` LONGTEXT )",
+  "tableChanges" : [ {
+    "type" : "CREATE",
+    "id" : "\"ezyaid\".\"schemeDirectory\"",
+    "table" : {
+      "defaultCharsetName" : "utf8mb4",
+      "primaryKeyColumnNames" : [ ],
+      "columns" : [ {
+        "name" : "id",
+        "jdbcType" : 4,
+        "typeName" : "INTEGER",
+        "typeExpression" : "INTEGER",
+        "charsetName" : null,
+        "position" : 1,
+        "optional" : false,
+        "autoIncremented" : false,
+        "generated" : false,
+        "comment" : null,
+        "hasDefaultValue" : false,
+        "enumValues" : [ ]
+      }, {
+        "name" : "scheme_name",
+        "jdbcType" : 12,
+        "typeName" : "LONGTEXT",
+        "typeExpression" : "LONGTEXT",
+        "charsetName" : "utf8mb4",
+        "position" : 2,
+        "optional" : true,
+        "autoIncremented" : false,
+        "generated" : false,
+        "comment" : null,
+        "hasDefaultValue" : true,
+        "enumValues" : [ ]
+      }, {
+        "name" : "open_date",
+        "jdbcType" : 12,
+        "typeName" : "LONGTEXT",
+        "typeExpression" : "LONGTEXT",
+        "charsetName" : "utf8mb4",
+        "position" : 3,
+        "optional" : true,
+        "autoIncremented" : false,
+        "generated" : false,
+        "comment" : null,
+        "hasDefaultValue" : true,
+        "enumValues" : [ ]
+      }, {
+        "name" : "state",
+        "jdbcType" : 12,
+        "typeName" : "LONGTEXT",
+        "typeExpression" : "LONGTEXT",
+        "charsetName" : "utf8mb4",
+        "position" : 4,
+        "optional" : true,
+        "autoIncremented" : false,
+        "generated" : false,
+        "comment" : null,
+        "hasDefaultValue" : true,
+        "enumValues" : [ ]
+      }, {
+        "name" : "implementing_agency",
+        "jdbcType" : 12,
+        "typeName" : "LONGTEXT",
+        "typeExpression" : "LONGTEXT",
+        "charsetName" : "utf8mb4",
+        "position" : 5,
+        "optional" : true,
+        "autoIncremented" : false,
+        "generated" : false,
+        "comment" : null,
+        "hasDefaultValue" : true,
+        "enumValues" : [ ]
+      }, {
+        "name" : "category",
+        "jdbcType" : 12,
+        "typeName" : "LONGTEXT",
+        "typeExpression" : "LONGTEXT",
+        "charsetName" : "utf8mb4",
+        "position" : 6,
+        "optional" : true,
+        "autoIncremented" : false,
+        "generated" : false,
+        "comment" : null,
+        "hasDefaultValue" : true,
+        "enumValues" : [ ]
+      }, {
+        "name" : "subcategory",
+        "jdbcType" : 12,
+        "typeName" : "LONGTEXT",
+        "typeExpression" : "LONGTEXT",
+        "charsetName" : "utf8mb4",
+        "position" : 7,
+        "optional" : true,
+        "autoIncremented" : false,
+        "generated" : false,
+        "comment" : null,
+        "hasDefaultValue" : true,
+        "enumValues" : [ ]
+      }, {
+        "name" : "tags",
+        "jdbcType" : 12,
+        "typeName" : "LONGTEXT",
+        "typeExpression" : "LONGTEXT",
+        "charsetName" : "utf8mb4",
+        "position" : 8,
+        "optional" : true,
+        "autoIncremented" : false,
+        "generated" : false,
+        "comment" : null,
+        "hasDefaultValue" : true,
+        "enumValues" : [ ]
+      }, {
+        "name" : "brief_description",
+        "jdbcType" : 12,
+        "typeName" : "LONGTEXT",
+        "typeExpression" : "LONGTEXT",
+        "charsetName" : "utf8mb4",
+        "position" : 9,
+        "optional" : true,
+        "autoIncremented" : false,
+        "generated" : false,
+        "comment" : null,
+        "hasDefaultValue" : true,
+        "enumValues" : [ ]
+      }, {
+        "name" : "detailed_description",
+        "jdbcType" : 12,
+        "typeName" : "LONGTEXT",
+        "typeExpression" : "LONGTEXT",
+        "charsetName" : "utf8mb4",
+        "position" : 10,
+        "optional" : true,
+        "autoIncremented" : false,
+        "generated" : false,
+        "comment" : null,
+        "hasDefaultValue" : true,
+        "enumValues" : [ ]
+      }, {
+        "name" : "benefits",
+        "jdbcType" : 12,
+        "typeName" : "LONGTEXT",
+        "typeExpression" : "LONGTEXT",
+        "charsetName" : "utf8mb4",
+        "position" : 11,
+        "optional" : true,
+        "autoIncremented" : false,
+        "generated" : false,
+        "comment" : null,
+        "hasDefaultValue" : true,
+        "enumValues" : [ ]
+      }, {
+        "name" : "exclusions",
+        "jdbcType" : 12,
+        "typeName" : "LONGTEXT",
+        "typeExpression" : "LONGTEXT",
+        "charsetName" : "utf8mb4",
+        "position" : 12,
+        "optional" : true,
+        "autoIncremented" : false,
+        "generated" : false,
+        "comment" : null,
+        "hasDefaultValue" : true,
+        "enumValues" : [ ]
+      }, {
+        "name" : "eligibility_criteria",
+        "jdbcType" : 12,
+        "typeName" : "LONGTEXT",
+        "typeExpression" : "LONGTEXT",
+        "charsetName" : "utf8mb4",
+        "position" : 13,
+        "optional" : true,
+        "autoIncremented" : false,
+        "generated" : false,
+        "comment" : null,
+        "hasDefaultValue" : true,
+        "enumValues" : [ ]
+      }, {
+        "name" : "application_process",
+        "jdbcType" : 12,
+        "typeName" : "LONGTEXT",
+        "typeExpression" : "LONGTEXT",
+        "charsetName" : "utf8mb4",
+        "position" : 14,
+        "optional" : true,
+        "autoIncremented" : false,
+        "generated" : false,
+        "comment" : null,
+        "hasDefaultValue" : true,
+        "enumValues" : [ ]
+      }, {
+        "name" : "documents_required",
+        "jdbcType" : 12,
+        "typeName" : "LONGTEXT",
+        "typeExpression" : "LONGTEXT",
+        "charsetName" : "utf8mb4",
+        "position" : 15,
+        "optional" : true,
+        "autoIncremented" : false,
+        "generated" : false,
+        "comment" : null,
+        "hasDefaultValue" : true,
+        "enumValues" : [ ]
+      } ],
+      "attributes" : [ ]
+    },
+    "comment" : null
+  } ]
+}
+{
+  "source" : {
+    "server" : "ezyaid"
+  },
+  "position" : {
+    "ts_sec" : 1744384422,
+    "file" : "mysql-bin.000004",
+    "pos" : 460481,
+    "gtids" : "1cbf30ef-16db-11f0-a5f7-4e0b07ebaacc:1-18",
+    "server_id" : 1
+  },
+  "ts_ms" : 1744384422077,
+  "databaseName" : "ezyaid",
+  "ddl" : "CREATE TABLE yearCounts (`Year` LONGTEXT , `count` INTEGER )",  
+  "tableChanges" : [ {
+    "type" : "CREATE",
+    "id" : "\"ezyaid\".\"yearCounts\"",
+    "table" : {
+      "defaultCharsetName" : "utf8mb4",
+      "primaryKeyColumnNames" : [ ],
+      "columns" : [ {
+        "name" : "Year",
+        "jdbcType" : 12,
+        "typeName" : "LONGTEXT",
+        "typeExpression" : "LONGTEXT",
+        "charsetName" : "utf8mb4",
+        "position" : 1,
+        "optional" : true,
+        "autoIncremented" : false,
+        "generated" : false,
+        "comment" : null,
+        "hasDefaultValue" : true,
+        "enumValues" : [ ]
+      }, {
+        "name" : "count",
+        "jdbcType" : 4,
+        "typeName" : "INTEGER",
+        "typeExpression" : "INTEGER",
+        "charsetName" : null,
+        "position" : 2,
+        "optional" : true,
+        "autoIncremented" : false,
+        "generated" : false,
+        "comment" : null,
+        "hasDefaultValue" : true,
+        "enumValues" : [ ]
+      } ],
+      "attributes" : [ ]
+    },
+    "comment" : null
+  } ]
+}
+{
+  "source" : {
+    "server" : "ezyaid"
+  },
+  "position" : {
+    "ts_sec" : 1744384423,
+    "file" : "mysql-bin.000004",
+    "pos" : 464873,
+    "gtids" : "1cbf30ef-16db-11f0-a5f7-4e0b07ebaacc:1-31",
+    "server_id" : 1
+  },
+  "ts_ms" : 1744384423177,
+  "databaseName" : "ezyaid",
+  "ddl" : "CREATE TABLE deptCounts (`Department` LONGTEXT , `count` INTEGER )",
+  "tableChanges" : [ {
+    "type" : "CREATE",
+    "id" : "\"ezyaid\".\"deptCounts\"",
+    "table" : {
+      "defaultCharsetName" : "utf8mb4",
+      "primaryKeyColumnNames" : [ ],
+      "columns" : [ {
+        "name" : "Department",
+        "jdbcType" : 12,
+        "typeName" : "LONGTEXT",
+        "typeExpression" : "LONGTEXT",
+        "charsetName" : "utf8mb4",
+        "position" : 1,
+        "optional" : true,
+        "autoIncremented" : false,
+        "generated" : false,
+        "comment" : null,
+        "hasDefaultValue" : true,
+        "enumValues" : [ ]
+      }, {
+        "name" : "count",
+        "jdbcType" : 4,
+        "typeName" : "INTEGER",
+        "typeExpression" : "INTEGER",
+        "charsetName" : null,
+        "position" : 2,
+        "optional" : true,
+        "autoIncremented" : false,
+        "generated" : false,
+        "comment" : null,
+        "hasDefaultValue" : true,
+        "enumValues" : [ ]
+      } ],
+      "attributes" : [ ]
+    },
+    "comment" : null
+  } ]
+}
+{
+  "source" : {
+    "server" : "ezyaid"
+  },
+  "position" : {
+    "ts_sec" : 1744384424,
+    "file" : "mysql-bin.000004",
+    "pos" : 472140,
+    "gtids" : "1cbf30ef-16db-11f0-a5f7-4e0b07ebaacc:1-44",
+    "server_id" : 1
+  },
+  "ts_ms" : 1744384424295,
+  "databaseName" : "ezyaid",
+  "ddl" : "CREATE TABLE applicantCounts (`Category` LONGTEXT , `Count` INTEGER )",
+  "tableChanges" : [ {
+    "type" : "CREATE",
+    "id" : "\"ezyaid\".\"applicantCounts\"",
+    "table" : {
+      "defaultCharsetName" : "utf8mb4",
+      "primaryKeyColumnNames" : [ ],
+      "columns" : [ {
+        "name" : "Category",
+        "jdbcType" : 12,
+        "typeName" : "LONGTEXT",
+        "typeExpression" : "LONGTEXT",
+        "charsetName" : "utf8mb4",
+        "position" : 1,
+        "optional" : true,
+        "autoIncremented" : false,
+        "generated" : false,
+        "comment" : null,
+        "hasDefaultValue" : true,
+        "enumValues" : [ ]
+      }, {
+        "name" : "Count",
+        "jdbcType" : 4,
+        "typeName" : "INTEGER",
+        "typeExpression" : "INTEGER",
+        "charsetName" : null,
+        "position" : 2,
+        "optional" : true,
+        "autoIncremented" : false,
+        "generated" : false,
+        "comment" : null,
+        "hasDefaultValue" : true,
+        "enumValues" : [ ]
+      } ],
+      "attributes" : [ ]
+    },
+    "comment" : null
+  } ]
+}
+^CProcessed a total of 5 messages
+I have no name!@7974f2984632:/$
+I have no name!@7974f2984632:/$
+I have no name!@7974f2984632:/$ kafka-topics.sh --bootstrap-server kafka_ezyaid:9092 --list
+__consumer_offsets
+debezium_configs
+debezium_offsets
+debezium_status
+ezyaid
+ezyaid.ezyaid.applicantCounts
+ezyaid.ezyaid.deptCounts
+ezyaid.ezyaid.schemeDirectory
+ezyaid.ezyaid.yearCounts
+ezyaidserver.ezyaid.schemeDirectory
+schema-changes.ezyaid
+I have no name!@7974f2984632:/$
