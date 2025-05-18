@@ -45,7 +45,7 @@ EzyAid is an intuitive digital platform aimed at enhancing citizen access to gov
 
 ##  System Architecture
 
-![app flow](https://github.com/user-attachments/assets/e465c7a8-659c-40cf-bfad-09c6f45c07e8)
+![image](https://github.com/user-attachments/assets/ce261e8a-af1b-4566-9064-4e4f4283f981)
 
 
 ---
